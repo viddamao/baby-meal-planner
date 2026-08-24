@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+.vite/
+
+# Local environment / secrets
+.env
+.env.*
+!.env.example
+
+# Editor / IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Local test / coverage output
+coverage/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Local app data / backups
+*.local.json
+*.backup.json
