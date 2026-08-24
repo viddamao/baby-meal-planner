@@ -30,11 +30,15 @@ function App() {
     const exists = data.history.some(m=>m.id===meal.id && m.date===meal.date);
     if(exists) return;
     update(d=>({...d, history:[...d.history,{...meal,eaten:true}]}));
-    setWeek(w=>w.map(m=>m.id===meal.id?{...m,eaten:true}:m));
+    setDayMeals((meals: Meal[]) =>
+      meals.map((m: Meal) => m.id === meal.id ? { ...m, eaten: true } : m)
+    );
   }
 
   function replaceMeal(meal: Meal, replacement: Meal) {
-    setWeek(w=>w.map(m=>m.id===meal.id?replacement:m));
+    setDayMeals((meals: Meal[]) =>
+      meals.map((m: Meal) => m.id === meal.id ? replacement : m)
+    );
     setExpanded(x=>({...x,[meal.id]:false}));
   }
 
@@ -126,7 +130,7 @@ function App() {
         <div className="eyebrow">RECENT MEALS</div>
         <p className="muted">The planner uses this history to avoid repetitive combinations.</p>
         <div className="recent-list">
-          {[...data.history].slice(-5).reverse().map(m=>
+          {[...data.history].slice(-5).reverse().map((m: Meal) =>
             <div className="recent-row" key={m.id}>
               <span>{formatDate(m.date)}</span>
               <strong>{formatMeal(m,foodMap)}</strong>

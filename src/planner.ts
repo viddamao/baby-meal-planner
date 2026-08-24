@@ -141,7 +141,7 @@ export function generateDay(data: AppData, date: string): Meal[] {
 
     const ranked = pool
       .filter(candidate => !chosen.some(c => comboKey(c) === comboKey(candidate)))
-      .map(candidate => ({
+      .map((candidate): Meal => ({
         ...candidate,
         date,
         slot,
@@ -175,7 +175,14 @@ export function substitutions(meal: Meal, data: AppData, plan: Meal[]): Meal[] {
   const pool = candidates(data).filter(c => comboKey(c) !== comboKey(meal));
 
   return pool
-    .map(c => ({ ...c, id: meal.id, date: meal.date, slot: meal.slot }))
-    .sort((a, b) => score(b, data, plan) - score(a, data, plan))
+    .map((c): Meal => ({
+      id: meal.id,
+      date: meal.date,
+      slot: meal.slot as "lunch" | "dinner",
+      protein: c.protein,
+      vegetables: c.vegetables,
+      fruit: c.fruit
+    }))
+    .sort((a: Meal, b: Meal) => score(b, data, plan) - score(a, data, plan))
     .slice(0, 2);
 }

@@ -26,3 +26,11 @@ For GitHub Pages, build with `npm run build` and publish `dist/`.
 ## 0.1.2
 
 Fixed candidate generation so fruit is always represented as a one-item array, matching the Meal type.
+
+## Validation
+
+```bash
+npm run typecheck
+npm run build
+npm test
+```
