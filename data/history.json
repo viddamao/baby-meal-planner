@@ -1,0 +1,2746 @@
+{
+  "version": 1,
+  "source": "Kaidi meal logs",
+  "dateRange": {
+    "start": "2026-07-01",
+    "end": "2026-08-24"
+  },
+  "meals": [
+    {
+      "id": "2026-07-01-breakfast-1",
+      "date": "2026-07-01",
+      "slot": "breakfast",
+      "protein": [
+        "egg",
+        "shrimp"
+      ],
+      "vegetables": [
+        "zucchini",
+        "carrot"
+      ],
+      "fruit": [
+        "banana",
+        "peach"
+      ],
+      "extras": [
+        "pancake"
+      ],
+      "source": "banana 🍌 pancake 🥞, zucchini, peach, steamed shrimp carrot paste finger food with egg omelette"
+    },
+    {
+      "id": "2026-07-01-lunch-2",
+      "date": "2026-07-01",
+      "slot": "lunch",
+      "protein": [
+        "chicken"
+      ],
+      "vegetables": [
+        "onion",
+        "cabbage",
+        "tomato"
+      ],
+      "fruit": [],
+      "extras": [
+        "oatmeal"
+      ],
+      "source": "chicken oat porridge (oats, chicken thigh with green onion), tomato, cabbage"
+    },
+    {
+      "id": "2026-07-01-dinner-3",
+      "date": "2026-07-01",
+      "slot": "dinner",
+      "protein": [
+        "dungeness-crab",
+        "egg"
+      ],
+      "vegetables": [
+        "lettuce",
+        "celery",
+        "kale"
+      ],
+      "fruit": [
+        "cherry"
+      ],
+      "extras": [
+        "yogurt"
+      ],
+      "source": "egg omelette with lettuce, Dungeness crab 🦀, cherry, celery, kale grown in the backyard with yogurt"
+    },
+    {
+      "id": "2026-07-02-breakfast-1",
+      "date": "2026-07-02",
+      "slot": "breakfast",
+      "protein": [
+        "pork"
+      ],
+      "vegetables": [
+        "avocado",
+        "taro",
+        "water-spinach"
+      ],
+      "fruit": [
+        "blueberry"
+      ],
+      "extras": [
+        "yogurt"
+      ],
+      "source": "pork slices and taro with avocado and a small amount of yogurt, 空心菜, Sweetest Batch blueberry"
+    },
+    {
+      "id": "2026-07-02-lunch-2",
+      "date": "2026-07-02",
+      "slot": "lunch",
+      "protein": [
+        "chicken"
+      ],
+      "vegetables": [
+        "carrot",
+        "bok-choy"
+      ],
+      "fruit": [
+        "lychee"
+      ],
+      "extras": [],
+      "source": "pm  chicken and carrot, lychee, 奶白菜"
+    },
+    {
+      "id": "2026-07-02-dinner-3",
+      "date": "2026-07-02",
+      "slot": "dinner",
+      "protein": [
+        "egg",
+        "tofu"
+      ],
+      "vegetables": [
+        "zucchini",
+        "celery"
+      ],
+      "fruit": [
+        "cherry"
+      ],
+      "extras": [
+        "yogurt"
+      ],
+      "source": "egg and tofu stir fry, zucchini with yogurt, red cherry, celery stick"
+    },
+    {
+      "id": "2026-07-03-breakfast-1",
+      "date": "2026-07-03",
+      "slot": "breakfast",
+      "protein": [
+        "king-salmon"
+      ],
+      "vegetables": [
+        "corn",
+        "bok-choy"
+      ],
+      "fruit": [
+        "blueberry",
+        "banana"
+      ],
+      "extras": [
+        "muffin",
+        "yogurt",
+        "peanut-butter"
+      ],
+      "source": "king salmon, 奶白菜 with yogurt, Sweetest Batch blueberry, 1/3 of banana corn peanut butter baby muffin"
+    },
+    {
+      "id": "2026-07-03-lunch-2",
+      "date": "2026-07-03",
+      "slot": "lunch",
+      "protein": [
+        "beef-short-rib"
+      ],
+      "vegetables": [
+        "broccoli",
+        "tomato",
+        "potato"
+      ],
+      "fruit": [
+        "blueberry"
+      ],
+      "extras": [],
+      "source": "pm  slow cooked beef short rib meat, broccoli crown, steamed potato with tomato, blueberry"
+    },
+    {
+      "id": "2026-07-03-dinner-3",
+      "date": "2026-07-03",
+      "slot": "dinner",
+      "protein": [
+        "egg",
+        "sea-bass",
+        "chicken"
+      ],
+      "vegetables": [],
+      "fruit": [],
+      "extras": [
+        "rice",
+        "yogurt",
+        "white-rice"
+      ],
+      "source": "steamed sea bass, white rice with yogurt, egg pudding made with chicken stock,"
+    },
+    {
+      "id": "2026-07-04-lunch-1",
+      "date": "2026-07-04",
+      "slot": "lunch",
+      "protein": [
+        "egg"
+      ],
+      "vegetables": [
+        "okra"
+      ],
+      "fruit": [
+        "apple",
+        "banana"
+      ],
+      "extras": [
+        "bread",
+        "lemon-juice"
+      ],
+      "source": "(during an outing) egg omelette with okra, apple slices with lemon juice, banana, a small amount of pizza crust"
+    },
+    {
+      "id": "2026-07-04-dinner-2",
+      "date": "2026-07-04",
+      "slot": "dinner",
+      "protein": [
+        "pork"
+      ],
+      "vegetables": [
+        "cucumber",
+        "carrot",
+        "okra",
+        "taro"
+      ],
+      "fruit": [
+        "apple"
+      ],
+      "extras": [
+        "yogurt"
+      ],
+      "source": "pork and taro, cucumber slices, carrot with yogurt, okra, a few apple slices"
+    },
+    {
+      "id": "2026-07-05-breakfast-1",
+      "date": "2026-07-05",
+      "slot": "breakfast",
+      "protein": [
+        "beef-short-rib"
+      ],
+      "vegetables": [
+        "sweet-potato",
+        "potato",
+        "tomato",
+        "carrot",
+        "corn"
+      ],
+      "fruit": [
+        "banana",
+        "kiwi"
+      ],
+      "extras": [
+        "muffin",
+        "yogurt"
+      ],
+      "source": "corn carrot banana baby muffin with yogurt, slow cooked beef short rib meat with tomato, kiwi, sweet potato"
+    },
+    {
+      "id": "2026-07-05-lunch-2",
+      "date": "2026-07-05",
+      "slot": "lunch",
+      "protein": [
+        "egg"
+      ],
+      "vegetables": [],
+      "fruit": [
+        "apple",
+        "cherry"
+      ],
+      "extras": [
+        "lemon-juice"
+      ],
+      "source": "(during an outing) apple slices with lemon juice, cherry, egg omelette"
+    },
+    {
+      "id": "2026-07-05-dinner-3",
+      "date": "2026-07-05",
+      "slot": "dinner",
+      "protein": [
+        "egg",
+        "shrimp"
+      ],
+      "vegetables": [
+        "cucumber",
+        "spinach"
+      ],
+      "fruit": [
+        "pear"
+      ],
+      "extras": [
+        "yogurt",
+        "tahini"
+      ],
+      "source": "steamed shrimp (3 pieces), leftover egg omelette, spinach with tahini, cucumber sticks with yogurt, steamed pear"
+    },
+    {
+      "id": "2026-07-06-lunch-1",
+      "date": "2026-07-06",
+      "slot": "lunch",
+      "protein": [
+        "egg",
+        "shrimp"
+      ],
+      "vegetables": [
+        "sweet-potato",
+        "cabbage",
+        "potato",
+        "okra"
+      ],
+      "fruit": [],
+      "extras": [],
+      "source": "egg omelette, okra with shrimp paste, steamed sweet potato, cabbage"
+    },
+    {
+      "id": "2026-07-06-dinner-2",
+      "date": "2026-07-06",
+      "slot": "dinner",
+      "protein": [
+        "king-salmon"
+      ],
+      "vegetables": [
+        "sweet-potato",
+        "broccoli",
+        "potato",
+        "tomato"
+      ],
+      "fruit": [],
+      "extras": [
+        "yogurt"
+      ],
+      "source": "king salmon with yogurt, steamed broccoli and tomato, sweet potato"
+    },
+    {
+      "id": "2026-07-07-breakfast-1",
+      "date": "2026-07-07",
+      "slot": "breakfast",
+      "protein": [
+        "chicken",
+        "egg"
+      ],
+      "vegetables": [
+        "bok-choy",
+        "corn"
+      ],
+      "fruit": [
+        "watermelon"
+      ],
+      "extras": [
+        "oatmeal"
+      ],
+      "source": "chicken oat porridge with egg yolk, corn cob round, watermelon, bok choy"
+    },
+    {
+      "id": "2026-07-07-dinner-2",
+      "date": "2026-07-07",
+      "slot": "dinner",
+      "protein": [
+        "egg",
+        "lobster"
+      ],
+      "vegetables": [
+        "gai-lan",
+        "carrot",
+        "corn",
+        "okra"
+      ],
+      "fruit": [
+        "banana"
+      ],
+      "extras": [
+        "muffin",
+        "yogurt"
+      ],
+      "source": "lobster, egg and okra stir fry, gai lan with yogurt, carrot corn banana baby muffin"
+    },
+    {
+      "id": "2026-07-08-breakfast-1",
+      "date": "2026-07-08",
+      "slot": "breakfast",
+      "protein": [
+        "pork"
+      ],
+      "vegetables": [
+        "nagaimo"
+      ],
+      "fruit": [
+        "peach"
+      ],
+      "extras": [],
+      "source": "peach slices, grape tomatoes, pork slices with Japanese yam (nagaimo)"
+    },
+    {
+      "id": "2026-07-08-dinner-2",
+      "date": "2026-07-08",
+      "slot": "dinner",
+      "protein": [
+        "lobster"
+      ],
+      "vegetables": [
+        "green-beans",
+        "corn"
+      ],
+      "fruit": [
+        "watermelon"
+      ],
+      "extras": [
+        "yogurt"
+      ],
+      "source": "lobster, mung bean porridge, green beans with yogurt, corn cob rounds, watermelon"
+    },
+    {
+      "id": "2026-07-09-breakfast-1",
+      "date": "2026-07-09",
+      "slot": "breakfast",
+      "protein": [
+        "chicken",
+        "egg"
+      ],
+      "vegetables": [
+        "gai-lan"
+      ],
+      "fruit": [],
+      "extras": [],
+      "source": "chicken porridge with egg yolk, grape tomatoes, gai lan 芥蓝"
+    },
+    {
+      "id": "2026-07-09-lunch-2",
+      "date": "2026-07-09",
+      "slot": "lunch",
+      "protein": [
+        "pork-loin"
+      ],
+      "vegetables": [
+        "green-beans",
+        "eggplant",
+        "cucumber"
+      ],
+      "fruit": [],
+      "extras": [],
+      "source": "pork loin, green beans, cucumber, eggplant"
+    },
+    {
+      "id": "2026-07-09-dinner-3",
+      "date": "2026-07-09",
+      "slot": "dinner",
+      "protein": [
+        "king-salmon"
+      ],
+      "vegetables": [
+        "broccoli"
+      ],
+      "fruit": [
+        "peach"
+      ],
+      "extras": [
+        "yogurt"
+      ],
+      "source": "king salmon, broccoli with yogurt, boiled mung bean, peach slices"
+    },
+    {
+      "id": "2026-07-10-breakfast-1",
+      "date": "2026-07-10",
+      "slot": "breakfast",
+      "protein": [
+        "egg",
+        "tofu"
+      ],
+      "vegetables": [
+        "onion"
+      ],
+      "fruit": [
+        "apple",
+        "watermelon"
+      ],
+      "extras": [
+        "oatmeal"
+      ],
+      "source": "egg and tofu stir fry with green onion, watermelon, oatmeal porridge with a small amount of apple chunks"
+    },
+    {
+      "id": "2026-07-10-lunch-2",
+      "date": "2026-07-10",
+      "slot": "lunch",
+      "protein": [
+        "pork"
+      ],
+      "vegetables": [
+        "cabbage",
+        "nagaimo",
+        "tomato"
+      ],
+      "fruit": [
+        "peach"
+      ],
+      "extras": [],
+      "source": "pork patty with Chinese yam (nagaimo), cabbage grown in the backyard with tomato, peach"
+    },
+    {
+      "id": "2026-07-10-dinner-3",
+      "date": "2026-07-10",
+      "slot": "dinner",
+      "protein": [
+        "pompano"
+      ],
+      "vegetables": [
+        "nagaimo",
+        "carrot",
+        "corn"
+      ],
+      "fruit": [
+        "cherry",
+        "banana"
+      ],
+      "extras": [
+        "muffin",
+        "yogurt"
+      ],
+      "source": "pompano fish, carrot sticks, Chinese Yam with yogurt, corn carrot banana baby muffin, cherry"
+    },
+    {
+      "id": "2026-07-11-breakfast-1",
+      "date": "2026-07-11",
+      "slot": "breakfast",
+      "protein": [
+        "egg",
+        "crab"
+      ],
+      "vegetables": [
+        "cucumber",
+        "carrot"
+      ],
+      "fruit": [
+        "cherry"
+      ],
+      "extras": [
+        "hummus"
+      ],
+      "source": "steamed egg custard with crab, roasted cumin carrots, cucumber with hummus as a dip, Ranier cherry"
+    },
+    {
+      "id": "2026-07-11-lunch-2",
+      "date": "2026-07-11",
+      "slot": "lunch",
+      "protein": [
+        "beef-chuck"
+      ],
+      "vegetables": [
+        "tomato",
+        "spinach"
+      ],
+      "fruit": [],
+      "extras": [
+        "yogurt",
+        "tahini"
+      ],
+      "source": "steamed grape tomato, beets with yogurt, spinach with tahini, beef chuck"
+    },
+    {
+      "id": "2026-07-11-dinner-3",
+      "date": "2026-07-11",
+      "slot": "dinner",
+      "protein": [
+        "shrimp"
+      ],
+      "vegetables": [
+        "tomato",
+        "avocado",
+        "carrot"
+      ],
+      "fruit": [
+        "strawberry"
+      ],
+      "extras": [
+        "yogurt"
+      ],
+      "source": "garlic sautéed shrimp, avocado with yogurt, one grape tomato, a few roasted cumin carrot sticks, organic strawberries"
+    },
+    {
+      "id": "2026-07-12-lunch-1",
+      "date": "2026-07-12",
+      "slot": "lunch",
+      "protein": [
+        "chicken",
+        "egg",
+        "crab"
+      ],
+      "vegetables": [
+        "corn",
+        "taro"
+      ],
+      "fruit": [
+        "strawberry"
+      ],
+      "extras": [
+        "yogurt"
+      ],
+      "source": "chicken thigh, leftover crab egg omelette, corn cob round, mashed taro paste mixed with yogurt, strawberry"
+    },
+    {
+      "id": "2026-07-12-dinner-2",
+      "date": "2026-07-12",
+      "slot": "dinner",
+      "protein": [
+        "beef-short-rib",
+        "shrimp",
+        "egg"
+      ],
+      "vegetables": [
+        "zucchini"
+      ],
+      "fruit": [
+        "cherry"
+      ],
+      "extras": [
+        "yogurt"
+      ],
+      "source": "zucchini shrimp egg dumplings, slow cooked beef short rib meat, yogurt, Ranier cherry"
+    },
+    {
+      "id": "2026-07-13-breakfast-1",
+      "date": "2026-07-13",
+      "slot": "breakfast",
+      "protein": [
+        "egg",
+        "shrimp"
+      ],
+      "vegetables": [
+        "tomato",
+        "bok-choy",
+        "zucchini"
+      ],
+      "fruit": [],
+      "extras": [],
+      "source": "savory steamed cake (shrimp, zucchini, egg dumpling mix from last night, plus egg and flour), grape tomato, bok choy"
+    },
+    {
+      "id": "2026-07-13-dinner-2",
+      "date": "2026-07-13",
+      "slot": "dinner",
+      "protein": [
+        "king-salmon"
+      ],
+      "vegetables": [
+        "broccoli",
+        "cucumber"
+      ],
+      "fruit": [
+        "cherry"
+      ],
+      "extras": [],
+      "source": "king salmon, cucumber, broccoli, Rainier cherry"
+    },
+    {
+      "id": "2026-07-14-dinner-1",
+      "date": "2026-07-14",
+      "slot": "dinner",
+      "protein": [
+        "shrimp"
+      ],
+      "vegetables": [
+        "onion",
+        "carrot"
+      ],
+      "fruit": [
+        "strawberry"
+      ],
+      "extras": [
+        "bread",
+        "yogurt",
+        "hummus"
+      ],
+      "source": "garlic sautéed shrimp, carrot with hummus, homemade scallion bun with yogurt, strawberry"
+    },
+    {
+      "id": "2026-07-15-dinner-1",
+      "date": "2026-07-15",
+      "slot": "dinner",
+      "protein": [
+        "egg",
+        "crab"
+      ],
+      "vegetables": [
+        "broccoli",
+        "spinach"
+      ],
+      "fruit": [
+        "cherry"
+      ],
+      "extras": [
+        "hummus",
+        "tahini"
+      ],
+      "source": "egg custard with crab meat, steamed broccoli head with hummus, spinach with tahini, grape tomatoes, Ranier cherry"
+    },
+    {
+      "id": "2026-07-16-breakfast-1",
+      "date": "2026-07-16",
+      "slot": "breakfast",
+      "protein": [
+        "lobster"
+      ],
+      "vegetables": [
+        "tomato",
+        "carrot",
+        "corn"
+      ],
+      "fruit": [
+        "banana"
+      ],
+      "extras": [
+        "muffin",
+        "hummus"
+      ],
+      "source": "wild caught lobster, banana carrot corn baby muffin with hummus, grape tomato"
+    },
+    {
+      "id": "2026-07-16-dinner-2",
+      "date": "2026-07-16",
+      "slot": "dinner",
+      "protein": [
+        "egg"
+      ],
+      "vegetables": [
+        "broccoli",
+        "lettuce",
+        "tomato"
+      ],
+      "fruit": [
+        "blueberry",
+        "kiwi"
+      ],
+      "extras": [],
+      "source": "egg omelette with lettuce grown in the backyard, steamed broccoli head, 西红柿汤擀面片, kiwi, blueberry"
+    },
+    {
+      "id": "2026-07-17-breakfast-1",
+      "date": "2026-07-17",
+      "slot": "breakfast",
+      "protein": [
+        "beef-shaved-roll"
+      ],
+      "vegetables": [
+        "bok-choy",
+        "carrot",
+        "tomato"
+      ],
+      "fruit": [
+        "peach"
+      ],
+      "extras": [
+        "rice"
+      ],
+      "source": "shaved beef roll and tomato over rice, carrot, bok choy, peach"
+    },
+    {
+      "id": "2026-07-17-lunch-2",
+      "date": "2026-07-17",
+      "slot": "lunch",
+      "protein": [
+        "chicken",
+        "egg"
+      ],
+      "vegetables": [
+        "tomato",
+        "opo-squash",
+        "corn"
+      ],
+      "fruit": [
+        "blueberry"
+      ],
+      "extras": [
+        "oatmeal"
+      ],
+      "source": "chicken oatmeal porridge with egg yolk, corn cob round, grape tomato, opo squash 瓠瓜, blueberry"
+    },
+    {
+      "id": "2026-07-17-dinner-3",
+      "date": "2026-07-17",
+      "slot": "dinner",
+      "protein": [
+        "trout"
+      ],
+      "vegetables": [
+        "tomato",
+        "zucchini",
+        "potato"
+      ],
+      "fruit": [
+        "plum"
+      ],
+      "extras": [
+        "yogurt"
+      ],
+      "source": "trout (steelhead), mashed potato with steamed grape tomato, zucchini with yogurt, 2/3 of a plum"
+    },
+    {
+      "id": "2026-07-18-breakfast-1",
+      "date": "2026-07-18",
+      "slot": "breakfast",
+      "protein": [
+        "egg",
+        "lobster"
+      ],
+      "vegetables": [
+        "asparagus"
+      ],
+      "fruit": [
+        "blueberry",
+        "banana"
+      ],
+      "extras": [
+        "pancake",
+        "ricotta"
+      ],
+      "source": "blueberry banana pancake 🥞, wild caught north Atlantic lobster tail, asparagus head, egg omelette with ricotta cheese"
+    },
+    {
+      "id": "2026-07-18-lunch-2",
+      "date": "2026-07-18",
+      "slot": "lunch",
+      "protein": [
+        "pork-rib",
+        "crab",
+        "pork",
+        "egg"
+      ],
+      "vegetables": [
+        "tomato",
+        "bell-pepper",
+        "asparagus",
+        "broccoli"
+      ],
+      "fruit": [],
+      "extras": [
+        "muffin",
+        "ricotta"
+      ],
+      "source": "asparagus, pork rib meat, grape tomato, broccoli, crab and bell pepper savory egg muffins with ricotta"
+    },
+    {
+      "id": "2026-07-18-dinner-3",
+      "date": "2026-07-18",
+      "slot": "dinner",
+      "protein": [
+        "pork-rib",
+        "rockfish",
+        "tofu",
+        "pork"
+      ],
+      "vegetables": [
+        "spinach"
+      ],
+      "fruit": [
+        "cherry"
+      ],
+      "extras": [
+        "bread",
+        "yogurt",
+        "tahini",
+        "mascarpone"
+      ],
+      "source": "a small amount of rockfish, pork rib meat, spinach with tahini, baked curry tofu with yogurt, beets, Ranier cherry, a small amount of fresh-out-of-the-oven mascarpone bread"
+    },
+    {
+      "id": "2026-07-20-lunch-1",
+      "date": "2026-07-20",
+      "slot": "lunch",
+      "protein": [
+        "chicken"
+      ],
+      "vegetables": [
+        "mung-bean",
+        "carrot"
+      ],
+      "fruit": [
+        "cherry",
+        "apple"
+      ],
+      "extras": [
+        "oatmeal",
+        "yogurt"
+      ],
+      "source": "oatmeal porridge with apple and carrot leaves from the backyard, chicken wings (de-boned), yogurt with mung beans, grape tomatoes, Ranier cherry"
+    },
+    {
+      "id": "2026-07-20-dinner-2",
+      "date": "2026-07-20",
+      "slot": "dinner",
+      "protein": [
+        "beef-shaved-roll",
+        "egg"
+      ],
+      "vegetables": [
+        "zucchini",
+        "spinach",
+        "carrot"
+      ],
+      "fruit": [
+        "watermelon"
+      ],
+      "extras": [
+        "pancake",
+        "yogurt"
+      ],
+      "source": "shaved beef roll, spinach, carrot, yogurt zucchini egg pancakes with whole wheat flour, watermelon"
+    },
+    {
+      "id": "2026-07-21-breakfast-1",
+      "date": "2026-07-21",
+      "slot": "breakfast",
+      "protein": [
+        "chicken",
+        "egg"
+      ],
+      "vegetables": [
+        "zucchini",
+        "tomato"
+      ],
+      "fruit": [
+        "blueberry"
+      ],
+      "extras": [
+        "rice"
+      ],
+      "source": "egg and tomato stir fry topped over rice, chicken thigh and a few zucchini slices, blueberry"
+    },
+    {
+      "id": "2026-07-21-lunch-2",
+      "date": "2026-07-21",
+      "slot": "lunch",
+      "protein": [
+        "shrimp"
+      ],
+      "vegetables": [
+        "asparagus"
+      ],
+      "fruit": [
+        "watermelon"
+      ],
+      "extras": [
+        "bread"
+      ],
+      "source": "watermelon, garlic sautéed shrimp and asparagus, 香葱发面饼"
+    },
+    {
+      "id": "2026-07-21-dinner-3",
+      "date": "2026-07-21",
+      "slot": "dinner",
+      "protein": [
+        "chicken",
+        "pork-rib",
+        "pork"
+      ],
+      "vegetables": [
+        "tomato",
+        "sweet-potato",
+        "zucchini",
+        "bok-choy",
+        "potato"
+      ],
+      "fruit": [
+        "cherry"
+      ],
+      "extras": [
+        "yogurt"
+      ],
+      "source": "pork rib meat, bok choy, sweet potato with yogurt, cherry, leftover chicken thigh and zucchini, mung bean, grape tomato"
+    },
+    {
+      "id": "2026-07-22-breakfast-1",
+      "date": "2026-07-22",
+      "slot": "breakfast",
+      "protein": [
+        "beef-short-rib",
+        "egg"
+      ],
+      "vegetables": [
+        "lettuce",
+        "carrot"
+      ],
+      "fruit": [],
+      "extras": [
+        "oatmeal"
+      ],
+      "source": "oatmeal porridge with egg yolk, slow cooked beef short rib meat with carrot, lettuce grown in the backyard"
+    },
+    {
+      "id": "2026-07-22-lunch-2",
+      "date": "2026-07-22",
+      "slot": "lunch",
+      "protein": [
+        "egg"
+      ],
+      "vegetables": [
+        "spinach",
+        "potato",
+        "daikon"
+      ],
+      "fruit": [
+        "blueberry",
+        "cherry",
+        "banana"
+      ],
+      "extras": [
+        "pancake"
+      ],
+      "source": "daikon radish and potato stew, egg and spinach stir fry, blueberry and banana pancake, cherry"
+    },
+    {
+      "id": "2026-07-22-dinner-3",
+      "date": "2026-07-22",
+      "slot": "dinner",
+      "protein": [
+        "egg",
+        "crab",
+        "tofu"
+      ],
+      "vegetables": [
+        "tomato"
+      ],
+      "fruit": [
+        "kiwi"
+      ],
+      "extras": [],
+      "source": "grape tomato, crab claw meat tofu egg stir fry, kiwi"
+    },
+    {
+      "id": "2026-07-23-breakfast-1",
+      "date": "2026-07-23",
+      "slot": "breakfast",
+      "protein": [
+        "egg",
+        "beef"
+      ],
+      "vegetables": [],
+      "fruit": [
+        "apple"
+      ],
+      "extras": [
+        "oatmeal"
+      ],
+      "source": "oatmeal with apple and beef, egg omelette with"
+    },
+    {
+      "id": "2026-07-23-lunch-2",
+      "date": "2026-07-23",
+      "slot": "lunch",
+      "protein": [
+        "chicken"
+      ],
+      "vegetables": [
+        "carrot"
+      ],
+      "fruit": [
+        "apple",
+        "kiwi"
+      ],
+      "extras": [],
+      "source": "apple slices, chicken thigh with kiwi and carrot"
+    },
+    {
+      "id": "2026-07-23-dinner-3",
+      "date": "2026-07-23",
+      "slot": "dinner",
+      "protein": [
+        "egg",
+        "crab"
+      ],
+      "vegetables": [
+        "bell-pepper",
+        "zucchini",
+        "tomato"
+      ],
+      "fruit": [
+        "cherry"
+      ],
+      "extras": [
+        "muffin",
+        "pasta"
+      ],
+      "source": "crab bell pepper egg muffin, zucchini, 西红柿面片汤, cherry"
+    },
+    {
+      "id": "2026-07-24-breakfast-1",
+      "date": "2026-07-24",
+      "slot": "breakfast",
+      "protein": [
+        "pork-rib",
+        "pork"
+      ],
+      "vegetables": [
+        "broccoli",
+        "carrot"
+      ],
+      "fruit": [
+        "cherry"
+      ],
+      "extras": [
+        "rice",
+        "white-rice",
+        "wild-rice"
+      ],
+      "source": "brown and wild rice➕a small amount of white rice, pork rib meat with carrot and broccoli, 3 pieces of cherry"
+    },
+    {
+      "id": "2026-07-24-lunch-2",
+      "date": "2026-07-24",
+      "slot": "lunch",
+      "protein": [
+        "egg",
+        "shrimp"
+      ],
+      "vegetables": [
+        "tomato",
+        "onion"
+      ],
+      "fruit": [
+        "banana"
+      ],
+      "extras": [
+        "muffin",
+        "peanut-butter"
+      ],
+      "source": "3 pieces of shrimp with green onion, grape tomato egg stir fry, egg banana peanut butter baby muffin"
+    },
+    {
+      "id": "2026-07-24-dinner-3",
+      "date": "2026-07-24",
+      "slot": "dinner",
+      "protein": [
+        "chicken",
+        "egg",
+        "shrimp"
+      ],
+      "vegetables": [
+        "broccoli",
+        "lettuce"
+      ],
+      "fruit": [
+        "watermelon"
+      ],
+      "extras": [],
+      "source": "egg omelette with broccoli and lettuce, 5-6 grape tomatoes, a small amount of chicken thigh, one shrimp, watermelon"
+    },
+    {
+      "id": "2026-07-25-breakfast-1",
+      "date": "2026-07-25",
+      "slot": "breakfast",
+      "protein": [
+        "lobster"
+      ],
+      "vegetables": [
+        "bok-choy",
+        "carrot"
+      ],
+      "fruit": [
+        "blueberry"
+      ],
+      "extras": [
+        "pancake",
+        "yogurt",
+        "ricotta",
+        "chia-seeds"
+      ],
+      "source": "blueberry ricotta whole wheat pancakes with chia seeds and yogurt, lobster, bok choy and carrots"
+    },
+    {
+      "id": "2026-07-25-lunch-2",
+      "date": "2026-07-25",
+      "slot": "lunch",
+      "protein": [
+        "pork-rib",
+        "pork"
+      ],
+      "vegetables": [
+        "bok-choy"
+      ],
+      "fruit": [
+        "apple"
+      ],
+      "extras": [
+        "bread"
+      ],
+      "source": "(lunch during outing)  apple slices, pork rib meat, bok choy, wood fired pizza 🍕"
+    },
+    {
+      "id": "2026-07-25-dinner-3",
+      "date": "2026-07-25",
+      "slot": "dinner",
+      "protein": [
+        "beef-short-rib"
+      ],
+      "vegetables": [
+        "asparagus",
+        "broccoli",
+        "corn"
+      ],
+      "fruit": [
+        "banana"
+      ],
+      "extras": [
+        "muffin",
+        "peanut-butter"
+      ],
+      "source": "broccoli, asparagus, beef short rib meat, homemade corn peanut butter banana baby muffin"
+    },
+    {
+      "id": "2026-07-26-breakfast-1",
+      "date": "2026-07-26",
+      "slot": "breakfast",
+      "protein": [
+        "egg"
+      ],
+      "vegetables": [
+        "cucumber"
+      ],
+      "fruit": [
+        "apple"
+      ],
+      "extras": [],
+      "source": "egg omelette with cucumber, apple slices"
+    },
+    {
+      "id": "2026-07-26-lunch-2",
+      "date": "2026-07-26",
+      "slot": "lunch",
+      "protein": [
+        "chicken",
+        "egg"
+      ],
+      "vegetables": [
+        "zucchini"
+      ],
+      "fruit": [
+        "blueberry",
+        "apple"
+      ],
+      "extras": [
+        "oatmeal",
+        "pancake",
+        "yogurt",
+        "ricotta",
+        "almond-butter",
+        "apple-cider-vinegar"
+      ],
+      "source": "blueberry ricotta cheese pancakes with yogurt and almond butter, zucchini with apple cider vinegar, oatmeal porridge with chicken and half an egg yolk"
+    },
+    {
+      "id": "2026-07-26-dinner-3",
+      "date": "2026-07-26",
+      "slot": "dinner",
+      "protein": [
+        "chicken",
+        "egg"
+      ],
+      "vegetables": [
+        "zucchini",
+        "spinach"
+      ],
+      "fruit": [
+        "cherry"
+      ],
+      "extras": [
+        "pancake"
+      ],
+      "source": "chicken thigh, spinach, zucchini egg pancake, cherry"
+    },
+    {
+      "id": "2026-07-27-breakfast-1",
+      "date": "2026-07-27",
+      "slot": "breakfast",
+      "protein": [
+        "pork"
+      ],
+      "vegetables": [
+        "bell-pepper",
+        "eggplant",
+        "tomato"
+      ],
+      "fruit": [],
+      "extras": [
+        "rice",
+        "wild-rice"
+      ],
+      "source": "eggplant pork tomato stir fry over rice (white, brown and wild rice), yellow bell pepper"
+    },
+    {
+      "id": "2026-07-27-lunch-2",
+      "date": "2026-07-27",
+      "slot": "lunch",
+      "protein": [
+        "egg",
+        "shrimp"
+      ],
+      "vegetables": [
+        "tomato",
+        "bell-pepper"
+      ],
+      "fruit": [],
+      "extras": [
+        "yogurt",
+        "almond-butter"
+      ],
+      "source": "shrimp egg custard (3 pieces of shrimp), grape tomato and yellow bell pepper, yogurt with almond butter"
+    },
+    {
+      "id": "2026-07-27-dinner-3",
+      "date": "2026-07-27",
+      "slot": "dinner",
+      "protein": [
+        "chicken"
+      ],
+      "vegetables": [
+        "sugar-snap-peas",
+        "potato",
+        "peas"
+      ],
+      "fruit": [],
+      "extras": [],
+      "source": "chicken thigh, sugar snap peas, potato stir fry"
+    },
+    {
+      "id": "2026-07-28-breakfast-1",
+      "date": "2026-07-28",
+      "slot": "breakfast",
+      "protein": [
+        "egg"
+      ],
+      "vegetables": [
+        "corn",
+        "broccoli",
+        "lettuce"
+      ],
+      "fruit": [],
+      "extras": [
+        "yogurt"
+      ],
+      "source": "egg omelette with lettuce grown in the backyard, broccoli with yogurt, corn cob round"
+    },
+    {
+      "id": "2026-07-28-lunch-2",
+      "date": "2026-07-28",
+      "slot": "lunch",
+      "protein": [],
+      "vegetables": [
+        "sugar-snap-peas",
+        "eggplant",
+        "tomato",
+        "carrot",
+        "peas"
+      ],
+      "fruit": [],
+      "extras": [
+        "yogurt"
+      ],
+      "source": "carrot, sugar snap peas with yogurt, eggplant tomato stew, a small amount of homemade 豆包"
+    },
+    {
+      "id": "2026-07-29-breakfast-1",
+      "date": "2026-07-29",
+      "slot": "breakfast",
+      "protein": [
+        "egg",
+        "pork-rib",
+        "pork"
+      ],
+      "vegetables": [
+        "bok-choy",
+        "lettuce",
+        "carrot"
+      ],
+      "fruit": [],
+      "extras": [
+        "yogurt"
+      ],
+      "source": "egg omelette with lettuce grown in the backyard, carrot with yogurt, bok choy and a small amount of pork rib meat"
+    },
+    {
+      "id": "2026-07-29-lunch-2",
+      "date": "2026-07-29",
+      "slot": "lunch",
+      "protein": [
+        "pork-rib",
+        "pork"
+      ],
+      "vegetables": [
+        "bok-choy",
+        "corn"
+      ],
+      "fruit": [
+        "blueberry"
+      ],
+      "extras": [
+        "pancake",
+        "yogurt",
+        "ricotta"
+      ],
+      "source": "corn cob round, bok choy and pork rib meat stir fry, blueberry ricotta cheese pancake with yogurt"
+    },
+    {
+      "id": "2026-07-29-dinner-3",
+      "date": "2026-07-29",
+      "slot": "dinner",
+      "protein": [
+        "beef"
+      ],
+      "vegetables": [
+        "sugar-snap-peas",
+        "bell-pepper",
+        "peas"
+      ],
+      "fruit": [],
+      "extras": [
+        "bread",
+        "almond-butter"
+      ],
+      "source": "slow cooked beef with sugar snap peas, homemade steamed bun with almond butter, grape tomatoes, a small amount of sliced yellow bell pepper"
+    },
+    {
+      "id": "2026-07-30-breakfast-1",
+      "date": "2026-07-30",
+      "slot": "breakfast",
+      "protein": [
+        "chicken",
+        "egg"
+      ],
+      "vegetables": [
+        "spinach"
+      ],
+      "fruit": [
+        "cherry"
+      ],
+      "extras": [],
+      "source": "spinach and egg stir fry, chicken thigh, 2 pieces of cherry"
+    },
+    {
+      "id": "2026-07-30-breakfast-2",
+      "date": "2026-07-30",
+      "slot": "breakfast",
+      "protein": [
+        "chicken",
+        "shrimp"
+      ],
+      "vegetables": [
+        "carrot"
+      ],
+      "fruit": [],
+      "extras": [],
+      "source": "pieces of shrimp, carrot, chicken thigh, cherry tomatoes"
+    },
+    {
+      "id": "2026-07-30-lunch-3",
+      "date": "2026-07-30",
+      "slot": "lunch",
+      "protein": [
+        "pompano",
+        "egg"
+      ],
+      "vegetables": [
+        "cucumber",
+        "zucchini"
+      ],
+      "fruit": [
+        "blueberry"
+      ],
+      "extras": [
+        "pancake",
+        "hummus"
+      ],
+      "source": "pm  pompano fish, zucchini egg pancakes, cucumber slices with hummus, blueberries"
+    },
+    {
+      "id": "2026-07-31-breakfast-1",
+      "date": "2026-07-31",
+      "slot": "breakfast",
+      "protein": [
+        "egg"
+      ],
+      "vegetables": [
+        "bell-pepper",
+        "lettuce"
+      ],
+      "fruit": [
+        "blueberry"
+      ],
+      "extras": [
+        "yogurt"
+      ],
+      "source": "egg omelette with lettuce grown in the backyard, orange bell pepper with yogurt, blueberry"
+    },
+    {
+      "id": "2026-08-01-breakfast-1",
+      "date": "2026-08-01",
+      "slot": "breakfast",
+      "protein": [],
+      "vegetables": [
+        "tomato",
+        "spinach",
+        "potato"
+      ],
+      "fruit": [],
+      "extras": [
+        "bread",
+        "tahini"
+      ],
+      "source": "French toast (rustic potato loaf), heirloom tomato, baby spinach with tahini"
+    },
+    {
+      "id": "2026-08-01-breakfast-2",
+      "date": "2026-08-01",
+      "slot": "breakfast",
+      "protein": [
+        "beef-short-rib"
+      ],
+      "vegetables": [
+        "bell-pepper"
+      ],
+      "fruit": [],
+      "extras": [],
+      "source": "beef short rib meat, yellow bell pepper"
+    },
+    {
+      "id": "2026-08-01-dinner-3",
+      "date": "2026-08-01",
+      "slot": "dinner",
+      "protein": [
+        "king-salmon"
+      ],
+      "vegetables": [
+        "sweet-potato",
+        "bell-pepper",
+        "broccoli",
+        "spinach",
+        "potato"
+      ],
+      "fruit": [],
+      "extras": [
+        "hummus"
+      ],
+      "source": "pan seared king salmon with hummus, steamed sweet potato, a small amount of steamed broccolini, bell pepper and spinach"
+    },
+    {
+      "id": "2026-08-02-breakfast-1",
+      "date": "2026-08-02",
+      "slot": "breakfast",
+      "protein": [
+        "king-salmon"
+      ],
+      "vegetables": [
+        "sweet-potato",
+        "zucchini",
+        "potato"
+      ],
+      "fruit": [
+        "apple"
+      ],
+      "extras": [
+        "yogurt",
+        "apple-cider-vinegar"
+      ],
+      "source": "king salmon, zucchini slices with apple cider vinegar, heirloom tomatoes, sweet potato with yogurt"
+    },
+    {
+      "id": "2026-08-02-lunch-2",
+      "date": "2026-08-02",
+      "slot": "lunch",
+      "protein": [
+        "egg",
+        "shrimp",
+        "beef"
+      ],
+      "vegetables": [
+        "onion",
+        "carrot"
+      ],
+      "fruit": [
+        "cherry"
+      ],
+      "extras": [
+        "rice",
+        "white-rice",
+        "wild-rice",
+        "brown-rice"
+      ],
+      "source": "(dining out at The Dolar Shop) egg omelette with carrot leaves and green onion grown in the backyard, 3 pieces of cherry, a small amount of rice (white rice, wild rice and brown rice), hot pot (beef slices, shrimp and a small amount of veggies)"
+    },
+    {
+      "id": "2026-08-02-dinner-3",
+      "date": "2026-08-02",
+      "slot": "dinner",
+      "protein": [
+        "beef-short-rib"
+      ],
+      "vegetables": [
+        "bell-pepper",
+        "broccoli",
+        "corn"
+      ],
+      "fruit": [],
+      "extras": [
+        "rice",
+        "white-rice",
+        "wild-rice",
+        "brown-rice"
+      ],
+      "source": "slow cooked beef short rib meat over rice (wild rice, brown rice and white rice mix), corn cob round, orange bell pepper, one piece of broccoli"
+    },
+    {
+      "id": "2026-08-03-dinner-1",
+      "date": "2026-08-03",
+      "slot": "dinner",
+      "protein": [
+        "shrimp"
+      ],
+      "vegetables": [
+        "sweet-potato",
+        "edamame",
+        "carrot",
+        "potato"
+      ],
+      "fruit": [],
+      "extras": [
+        "yogurt"
+      ],
+      "source": "pm  sautéed shrimp, heirloom tomatoes, sweet potato with mashed edamame, carrot with yogurt"
+    },
+    {
+      "id": "2026-08-04-breakfast-1",
+      "date": "2026-08-04",
+      "slot": "breakfast",
+      "protein": [
+        "beef-short-rib",
+        "egg"
+      ],
+      "vegetables": [
+        "bell-pepper",
+        "zucchini"
+      ],
+      "fruit": [
+        "plum"
+      ],
+      "extras": [
+        "pancake"
+      ],
+      "source": "早餐 zucchini egg pancake, slow cooked beef short rib meat, bell pepper, 1/3 plum"
+    },
+    {
+      "id": "2026-08-04-lunch-2",
+      "date": "2026-08-04",
+      "slot": "lunch",
+      "protein": [
+        "tofu",
+        "egg"
+      ],
+      "vegetables": [
+        "broccoli",
+        "corn"
+      ],
+      "fruit": [],
+      "extras": [],
+      "source": "午餐 silken tofu with egg, corn cob round, broccoli"
+    },
+    {
+      "id": "2026-08-04-dinner-3",
+      "date": "2026-08-04",
+      "slot": "dinner",
+      "protein": [
+        "pork-belly",
+        "pork"
+      ],
+      "vegetables": [
+        "tomato",
+        "sweet-potato",
+        "bok-choy",
+        "spinach",
+        "potato"
+      ],
+      "fruit": [],
+      "extras": [
+        "tahini"
+      ],
+      "source": "晚餐 heirloom tomato, a small amount of sweet potato, baby spinach with tahini, pork belly slices and bok choy stir fry"
+    },
+    {
+      "id": "2026-08-05-breakfast-1",
+      "date": "2026-08-05",
+      "slot": "breakfast",
+      "protein": [
+        "beef-short-rib"
+      ],
+      "vegetables": [
+        "zucchini",
+        "carrot"
+      ],
+      "fruit": [
+        "blueberry"
+      ],
+      "extras": [
+        "pancake",
+        "ricotta"
+      ],
+      "source": "早餐 blueberry ricotta cheese pancakes, beef short rib and zucchini stir fry, steamed carrots"
+    },
+    {
+      "id": "2026-08-05-lunch-2",
+      "date": "2026-08-05",
+      "slot": "lunch",
+      "protein": [
+        "dungeness-crab",
+        "egg"
+      ],
+      "vegetables": [
+        "broccoli"
+      ],
+      "fruit": [
+        "plum"
+      ],
+      "extras": [],
+      "source": "午餐 Dungeness crab and egg stir fry, broccoli, plum"
+    },
+    {
+      "id": "2026-08-05-dinner-3",
+      "date": "2026-08-05",
+      "slot": "dinner",
+      "protein": [
+        "beef-short-rib"
+      ],
+      "vegetables": [
+        "tomato",
+        "bell-pepper",
+        "cauliflower"
+      ],
+      "fruit": [],
+      "extras": [
+        "bread"
+      ],
+      "source": "晚餐 beef short rib meat and cauliflower stir fry, bell pepper and 2 pieces of grape tomato, French toast"
+    },
+    {
+      "id": "2026-08-06-breakfast-1",
+      "date": "2026-08-06",
+      "slot": "breakfast",
+      "protein": [],
+      "vegetables": [],
+      "fruit": [
+        "blueberry"
+      ],
+      "extras": [
+        "bread"
+      ],
+      "source": "早餐 French toast made with Whole Foods San Francisco sourdough bread, blueberry"
+    },
+    {
+      "id": "2026-08-06-lunch-2",
+      "date": "2026-08-06",
+      "slot": "lunch",
+      "protein": [
+        "chicken"
+      ],
+      "vegetables": [
+        "tomato",
+        "corn",
+        "bok-choy"
+      ],
+      "fruit": [],
+      "extras": [
+        "yogurt"
+      ],
+      "source": "午餐 chicken thigh, bok choy stir fry with yogurt, grape tomato, corn cob round"
+    },
+    {
+      "id": "2026-08-06-dinner-3",
+      "date": "2026-08-06",
+      "slot": "dinner",
+      "protein": [
+        "beef-short-rib"
+      ],
+      "vegetables": [
+        "sweet-potato",
+        "cauliflower",
+        "carrot",
+        "celery",
+        "potato"
+      ],
+      "fruit": [],
+      "extras": [
+        "hummus"
+      ],
+      "source": "晚餐 beef short rib meat and cauliflower stir fry, sweet potato, carrots, celery with hummus"
+    },
+    {
+      "id": "2026-08-07-breakfast-1",
+      "date": "2026-08-07",
+      "slot": "breakfast",
+      "protein": [
+        "shrimp"
+      ],
+      "vegetables": [
+        "tomato",
+        "zucchini"
+      ],
+      "fruit": [
+        "blueberry"
+      ],
+      "extras": [
+        "pancake",
+        "yogurt"
+      ],
+      "source": "早餐 sautéed shrimp, zucchini, grape tomato, blueberry yogurt pancake"
+    },
+    {
+      "id": "2026-08-07-lunch-2",
+      "date": "2026-08-07",
+      "slot": "lunch",
+      "protein": [
+        "egg"
+      ],
+      "vegetables": [
+        "corn",
+        "bok-choy",
+        "spinach"
+      ],
+      "fruit": [],
+      "extras": [
+        "yogurt"
+      ],
+      "source": "午餐 egg omelette with spinach, bok choy, corn cob round, yogurt"
+    },
+    {
+      "id": "2026-08-07-dinner-3",
+      "date": "2026-08-07",
+      "slot": "dinner",
+      "protein": [
+        "king-salmon"
+      ],
+      "vegetables": [
+        "tomato",
+        "bell-pepper"
+      ],
+      "fruit": [],
+      "extras": [
+        "tahini"
+      ],
+      "source": "晚餐 king salmon, heirloom tomato, bell pepper, noodle mixed with tahini"
+    },
+    {
+      "id": "2026-08-08-breakfast-1",
+      "date": "2026-08-08",
+      "slot": "breakfast",
+      "protein": [
+        "egg"
+      ],
+      "vegetables": [
+        "yellow-squash",
+        "tomato",
+        "bok-choy"
+      ],
+      "fruit": [
+        "banana",
+        "apple"
+      ],
+      "extras": [
+        "bread",
+        "yogurt",
+        "almond-butter",
+        "peanut-butter",
+        "apple-cider-vinegar"
+      ],
+      "source": "早餐 banana almond butter & peanut butter rolls with sourdough toast and egg omelette, grape tomato and bok choy with yogurt, steamed yellow squash with apple cider vinegar"
+    },
+    {
+      "id": "2026-08-08-lunch-2",
+      "date": "2026-08-08",
+      "slot": "lunch",
+      "protein": [
+        "pork-belly",
+        "pork"
+      ],
+      "vegetables": [
+        "eggplant",
+        "spinach"
+      ],
+      "fruit": [
+        "blueberry"
+      ],
+      "extras": [
+        "tahini"
+      ],
+      "source": "午餐 eggplant and pork belly slices stir fry, blueberry, baby spinach with tahini"
+    },
+    {
+      "id": "2026-08-08-dinner-3",
+      "date": "2026-08-08",
+      "slot": "dinner",
+      "protein": [
+        "beef-shaved-roll",
+        "shrimp"
+      ],
+      "vegetables": [
+        "bell-pepper",
+        "celery",
+        "tomato",
+        "onion"
+      ],
+      "fruit": [],
+      "extras": [
+        "bread",
+        "hummus"
+      ],
+      "source": "晚餐 homemade whole wheat pizza with shrimp, tomato, onion and bell pepper, celery with hummus, shaved beef roll stir fry"
+    },
+    {
+      "id": "2026-08-09-breakfast-1",
+      "date": "2026-08-09",
+      "slot": "breakfast",
+      "protein": [],
+      "vegetables": [
+        "yellow-squash",
+        "bok-choy"
+      ],
+      "fruit": [
+        "blueberry"
+      ],
+      "extras": [
+        "bread",
+        "yogurt",
+        "almond-butter"
+      ],
+      "source": "早餐 French toast with almond butter and blueberry, bok choy and grape tomatoes, steamed yellow squash with yogurt"
+    },
+    {
+      "id": "2026-08-09-lunch-2",
+      "date": "2026-08-09",
+      "slot": "lunch",
+      "protein": [
+        "beef-shaved-roll",
+        "tilapia"
+      ],
+      "vegetables": [
+        "cauliflower",
+        "eggplant",
+        "carrot"
+      ],
+      "fruit": [],
+      "extras": [],
+      "source": "pm 午餐 eggplant and shaved beef roll stir fry, fried tilapia, cauliflower, carrot"
+    },
+    {
+      "id": "2026-08-09-dinner-3",
+      "date": "2026-08-09",
+      "slot": "dinner",
+      "protein": [
+        "pork-belly",
+        "tilapia",
+        "pork"
+      ],
+      "vegetables": [
+        "spinach",
+        "celery"
+      ],
+      "fruit": [],
+      "extras": [
+        "rice",
+        "yogurt",
+        "white-rice",
+        "wild-rice",
+        "brown-rice"
+      ],
+      "source": "pm 晚餐 baby spinach and yogurt, pork belly slices and celery stir fry with rice (wild rice, brown rice and white rice), fried tilapia 🐟"
+    },
+    {
+      "id": "2026-08-10-breakfast-1",
+      "date": "2026-08-10",
+      "slot": "breakfast",
+      "protein": [
+        "egg"
+      ],
+      "vegetables": [
+        "lettuce"
+      ],
+      "fruit": [
+        "blueberry"
+      ],
+      "extras": [
+        "bread",
+        "yogurt"
+      ],
+      "source": "早餐 French toast with yogurt, egg omelette rolls with lettuce grown in the backyard, blueberry"
+    },
+    {
+      "id": "2026-08-10-lunch-2",
+      "date": "2026-08-10",
+      "slot": "lunch",
+      "protein": [
+        "beef-short-rib"
+      ],
+      "vegetables": [
+        "yellow-squash",
+        "bell-pepper",
+        "carrot"
+      ],
+      "fruit": [],
+      "extras": [],
+      "source": "午餐 beef short rib, carrot, bell pepper, yellow squash"
+    },
+    {
+      "id": "2026-08-10-dinner-3",
+      "date": "2026-08-10",
+      "slot": "dinner",
+      "protein": [
+        "king-salmon"
+      ],
+      "vegetables": [
+        "cauliflower",
+        "onion"
+      ],
+      "fruit": [],
+      "extras": [
+        "rice",
+        "yogurt"
+      ],
+      "source": "晚餐 pan fried king salmon with medley rice, cauliflower with yogurt, grape tomatoes, a small amount of onion"
+    },
+    {
+      "id": "2026-08-11-breakfast-1",
+      "date": "2026-08-11",
+      "slot": "breakfast",
+      "protein": [],
+      "vegetables": [
+        "cauliflower",
+        "bell-pepper"
+      ],
+      "fruit": [
+        "blueberry"
+      ],
+      "extras": [
+        "pancake",
+        "muffin",
+        "yogurt"
+      ],
+      "source": "早餐 蓝莓酸奶小饼，彩椒胡萝卜蟹肉麦芬，cauliflower, blueberry"
+    },
+    {
+      "id": "2026-08-11-lunch-2",
+      "date": "2026-08-11",
+      "slot": "lunch",
+      "protein": [
+        "beef-short-rib",
+        "egg"
+      ],
+      "vegetables": [
+        "corn",
+        "lettuce"
+      ],
+      "fruit": [],
+      "extras": [],
+      "source": "午餐 slow cooked beef short rib meat, corn cob round, egg omelette with lettuce"
+    },
+    {
+      "id": "2026-08-11-dinner-3",
+      "date": "2026-08-11",
+      "slot": "dinner",
+      "protein": [
+        "king-salmon"
+      ],
+      "vegetables": [
+        "zucchini",
+        "spinach"
+      ],
+      "fruit": [],
+      "extras": [
+        "rice",
+        "tahini"
+      ],
+      "source": "pm 晚餐 king salmon over medley rice, grape tomatoes, zucchini slices, spinach with tahini"
+    },
+    {
+      "id": "2026-08-12-breakfast-1",
+      "date": "2026-08-12",
+      "slot": "breakfast",
+      "protein": [
+        "egg"
+      ],
+      "vegetables": [
+        "corn",
+        "lettuce"
+      ],
+      "fruit": [
+        "blueberry"
+      ],
+      "extras": [
+        "pancake",
+        "yogurt"
+      ],
+      "source": "早餐 blueberry pancake with yogurt, egg omelette with lettuce grown in the backyard, corn cob round"
+    },
+    {
+      "id": "2026-08-12-lunch-2",
+      "date": "2026-08-12",
+      "slot": "lunch",
+      "protein": [
+        "beef-shaved-roll"
+      ],
+      "vegetables": [
+        "sweet-potato",
+        "bell-pepper",
+        "celery",
+        "potato",
+        "carrot"
+      ],
+      "fruit": [],
+      "extras": [],
+      "source": "pm 午餐 carrot, sweet potato, bell pepper, shaved beef roll and celery stir fry"
+    },
+    {
+      "id": "2026-08-12-dinner-3",
+      "date": "2026-08-12",
+      "slot": "dinner",
+      "protein": [
+        "pork-rib",
+        "pork"
+      ],
+      "vegetables": [
+        "lotus-root",
+        "eggplant"
+      ],
+      "fruit": [],
+      "extras": [
+        "rice",
+        "white-rice"
+      ],
+      "source": "晚餐 slow cooked pork rib meat, eggplant, white rice, lotus root slices (barely ate at all)"
+    },
+    {
+      "id": "2026-08-13-breakfast-1",
+      "date": "2026-08-13",
+      "slot": "breakfast",
+      "protein": [
+        "beef-short-rib",
+        "egg",
+        "crab"
+      ],
+      "vegetables": [
+        "bell-pepper",
+        "bok-choy"
+      ],
+      "fruit": [
+        "blueberry"
+      ],
+      "extras": [
+        "muffin"
+      ],
+      "source": "早餐 crab meat and bell pepper egg muffin, slow cooked beef short rib meat, steamed bok choy, blueberries"
+    },
+    {
+      "id": "2026-08-13-lunch-2",
+      "date": "2026-08-13",
+      "slot": "lunch",
+      "protein": [
+        "pork-rib",
+        "pork",
+        "egg"
+      ],
+      "vegetables": [],
+      "fruit": [],
+      "extras": [
+        "rice",
+        "white-rice"
+      ],
+      "source": "午餐 pork rib meat and white rice, egg plant, grape tomatoes"
+    },
+    {
+      "id": "2026-08-13-dinner-3",
+      "date": "2026-08-13",
+      "slot": "dinner",
+      "protein": [
+        "beef-shank",
+        "shrimp"
+      ],
+      "vegetables": [
+        "asparagus",
+        "spinach",
+        "carrot"
+      ],
+      "fruit": [],
+      "extras": [
+        "tahini"
+      ],
+      "source": "pm 晚餐 garlic sautéed shrimp, asparagus, carrot, beef shank stew 炖牛腩, a small amount of baby spinach with tahini"
+    },
+    {
+      "id": "2026-08-14-breakfast-1",
+      "date": "2026-08-14",
+      "slot": "breakfast",
+      "protein": [
+        "beef-shank"
+      ],
+      "vegetables": [
+        "asparagus",
+        "carrot"
+      ],
+      "fruit": [],
+      "extras": [],
+      "source": "早餐 beef shank stew 炖牛腩, asparagus, carrot, grape tomatoes"
+    },
+    {
+      "id": "2026-08-14-lunch-2",
+      "date": "2026-08-14",
+      "slot": "lunch",
+      "protein": [
+        "egg"
+      ],
+      "vegetables": [
+        "bell-pepper",
+        "kabocha",
+        "lettuce",
+        "celery"
+      ],
+      "fruit": [],
+      "extras": [],
+      "source": "午餐 egg omelette with lettuce, kabocha squash, celery, bell pepper"
+    },
+    {
+      "id": "2026-08-14-dinner-3",
+      "date": "2026-08-14",
+      "slot": "dinner",
+      "protein": [
+        "spot-shrimp",
+        "pork"
+      ],
+      "vegetables": [
+        "cauliflower"
+      ],
+      "fruit": [],
+      "extras": [
+        "bread",
+        "almond-butter"
+      ],
+      "source": "晚餐 rustic baguette with almond butter, spot shrimp 斑点虾, pork slices, steamed cauliflower"
+    },
+    {
+      "id": "2026-08-15-breakfast-1",
+      "date": "2026-08-15",
+      "slot": "breakfast",
+      "protein": [],
+      "vegetables": [
+        "bok-choy"
+      ],
+      "fruit": [],
+      "extras": [
+        "bread"
+      ],
+      "source": "早餐 French toast made with Whole Foods SF sourdough bread, 上海奶白菜"
+    },
+    {
+      "id": "2026-08-15-lunch-2",
+      "date": "2026-08-15",
+      "slot": "lunch",
+      "protein": [
+        "beef-shank"
+      ],
+      "vegetables": [
+        "carrot"
+      ],
+      "fruit": [],
+      "extras": [
+        "rice",
+        "white-rice"
+      ],
+      "source": "午餐 carrot, beef stew 炖牛腩, white rice"
+    },
+    {
+      "id": "2026-08-15-dinner-3",
+      "date": "2026-08-15",
+      "slot": "dinner",
+      "protein": [
+        "chicken",
+        "egg",
+        "crab"
+      ],
+      "vegetables": [
+        "cauliflower",
+        "bell-pepper",
+        "kabocha"
+      ],
+      "fruit": [],
+      "extras": [
+        "muffin"
+      ],
+      "source": "pm 晚餐 kabocha squash, bell pepper, chicken thigh, cauliflower, egg and crab egg muffin"
+    },
+    {
+      "id": "2026-08-16-breakfast-1",
+      "date": "2026-08-16",
+      "slot": "breakfast",
+      "protein": [
+        "egg",
+        "beef-shank"
+      ],
+      "vegetables": [
+        "tomato",
+        "onion",
+        "asparagus"
+      ],
+      "fruit": [],
+      "extras": [
+        "bread"
+      ],
+      "source": "早餐 egg omelette with green onion, French toast with Whole Foods SF sourdough bread, 3 pieces of 炖牛腩, asparagus, grape tomato"
+    },
+    {
+      "id": "2026-08-16-lunch-2",
+      "date": "2026-08-16",
+      "slot": "lunch",
+      "protein": [
+        "shrimp"
+      ],
+      "vegetables": [
+        "cauliflower",
+        "pumpkin"
+      ],
+      "fruit": [
+        "strawberry"
+      ],
+      "extras": [],
+      "source": "午餐 during outing garlic sautéed shrimp, pumpkin, cauliflower, strawberry"
+    },
+    {
+      "id": "2026-08-16-dinner-3",
+      "date": "2026-08-16",
+      "slot": "dinner",
+      "protein": [
+        "chicken"
+      ],
+      "vegetables": [
+        "cauliflower",
+        "carrot",
+        "bok-choy"
+      ],
+      "fruit": [],
+      "extras": [],
+      "source": "pm 晚餐 chicken thigh, carrot, a small amount of cauliflower stem, a small amount of 奶白菜"
+    },
+    {
+      "id": "2026-08-17-breakfast-1",
+      "date": "2026-08-17",
+      "slot": "breakfast",
+      "protein": [
+        "chicken"
+      ],
+      "vegetables": [
+        "bell-pepper",
+        "carrot"
+      ],
+      "fruit": [],
+      "extras": [
+        "bread"
+      ],
+      "source": "早餐 chicken thigh, bell pepper, carrot, French toast"
+    },
+    {
+      "id": "2026-08-17-lunch-2",
+      "date": "2026-08-17",
+      "slot": "lunch",
+      "protein": [
+        "beef-shank"
+      ],
+      "vegetables": [
+        "kabocha",
+        "broccoli"
+      ],
+      "fruit": [
+        "strawberry"
+      ],
+      "extras": [],
+      "source": "午餐 牛腩 beef brisket stew, Kanu ha squash, broccoli, strawberry"
+    },
+    {
+      "id": "2026-08-17-dinner-3",
+      "date": "2026-08-17",
+      "slot": "dinner",
+      "protein": [
+        "pork-belly",
+        "pork",
+        "egg"
+      ],
+      "vegetables": [
+        "tomato",
+        "cucumber",
+        "morel"
+      ],
+      "fruit": [],
+      "extras": [
+        "pasta"
+      ],
+      "source": "pm 晚餐 morel, pork belly and lemon egg pasta, cucumber slices, heirloom tomato"
+    },
+    {
+      "id": "2026-08-18-breakfast-1",
+      "date": "2026-08-18",
+      "slot": "breakfast",
+      "protein": [
+        "pork-belly",
+        "pork",
+        "egg"
+      ],
+      "vegetables": [
+        "morel",
+        "zucchini"
+      ],
+      "fruit": [
+        "blueberry"
+      ],
+      "extras": [
+        "pancake",
+        "pasta"
+      ],
+      "source": "早餐 zucchini egg whole wheat flour pancake, a small amount of morel mushroom pork belly egg pasta, blueberry"
+    },
+    {
+      "id": "2026-08-18-lunch-2",
+      "date": "2026-08-18",
+      "slot": "lunch",
+      "protein": [
+        "beef-short-rib"
+      ],
+      "vegetables": [
+        "cauliflower",
+        "bell-pepper"
+      ],
+      "fruit": [
+        "strawberry"
+      ],
+      "extras": [
+        "rice",
+        "white-rice"
+      ],
+      "source": "午餐 beef short rib meat, bell pepper, cauliflower, white rice, strawberry"
+    },
+    {
+      "id": "2026-08-18-dinner-3",
+      "date": "2026-08-18",
+      "slot": "dinner",
+      "protein": [
+        "egg",
+        "tofu"
+      ],
+      "vegetables": [
+        "tomato",
+        "onion",
+        "cucumber"
+      ],
+      "fruit": [],
+      "extras": [
+        "hummus"
+      ],
+      "source": "晚餐 egg and heirloom tomato stir fry, silken tofu with sesame oil, minced ginger and green onion, cucumber slices with hummus"
+    },
+    {
+      "id": "2026-08-19-breakfast-1",
+      "date": "2026-08-19",
+      "slot": "breakfast",
+      "protein": [
+        "shrimp",
+        "egg"
+      ],
+      "vegetables": [
+        "eggplant",
+        "zucchini"
+      ],
+      "fruit": [
+        "blueberry"
+      ],
+      "extras": [
+        "pancake"
+      ],
+      "source": "早餐 zucchini egg pancakes, steamed eggplant, homemade shrimp paste 虾滑, blueberry"
+    },
+    {
+      "id": "2026-08-19-lunch-2",
+      "date": "2026-08-19",
+      "slot": "lunch",
+      "protein": [
+        "pork-rib",
+        "pork"
+      ],
+      "vegetables": [
+        "cauliflower",
+        "yu-choy",
+        "tomato"
+      ],
+      "fruit": [
+        "strawberry"
+      ],
+      "extras": [],
+      "source": "午餐 pork rib meat, cauliflower, tomato, yu choy, strawberry"
+    },
+    {
+      "id": "2026-08-19-dinner-3",
+      "date": "2026-08-19",
+      "slot": "dinner",
+      "protein": [
+        "beef-short-rib",
+        "tofu"
+      ],
+      "vegetables": [
+        "cucumber",
+        "corn"
+      ],
+      "fruit": [],
+      "extras": [
+        "hummus"
+      ],
+      "source": "晚餐 corn cob round, beef short rib meat, silken tofu, cucumber slices with hummus"
+    },
+    {
+      "id": "2026-08-20-breakfast-1",
+      "date": "2026-08-20",
+      "slot": "breakfast",
+      "protein": [
+        "egg",
+        "crab"
+      ],
+      "vegetables": [
+        "bell-pepper"
+      ],
+      "fruit": [
+        "strawberry",
+        "blueberry"
+      ],
+      "extras": [
+        "pancake",
+        "muffin",
+        "ricotta"
+      ],
+      "source": "早餐 blueberry ricotta cheese pancakes, crab bell pepper egg muffin, strawberry"
+    },
+    {
+      "id": "2026-08-20-lunch-2",
+      "date": "2026-08-20",
+      "slot": "lunch",
+      "protein": [
+        "chicken"
+      ],
+      "vegetables": [
+        "sweet-potato",
+        "bell-pepper",
+        "broccoli",
+        "potato"
+      ],
+      "fruit": [],
+      "extras": [],
+      "source": "午餐 sweet potato, chicken thigh, bell pepper, broccoli crown"
+    },
+    {
+      "id": "2026-08-20-dinner-3",
+      "date": "2026-08-20",
+      "slot": "dinner",
+      "protein": [
+        "pork-belly",
+        "pork"
+      ],
+      "vegetables": [
+        "tomato",
+        "morel",
+        "opo-squash",
+        "potato"
+      ],
+      "fruit": [],
+      "extras": [],
+      "source": "晚餐 pork belly slices and morel mushroom stir fry, opo squash, heirloom tomato, pan fried potato slices"
+    },
+    {
+      "id": "2026-08-21-breakfast-1",
+      "date": "2026-08-21",
+      "slot": "breakfast",
+      "protein": [
+        "egg"
+      ],
+      "vegetables": [
+        "tomato",
+        "onion",
+        "yu-choy",
+        "lettuce"
+      ],
+      "fruit": [],
+      "extras": [],
+      "source": "早餐 egg omelette with green onion and lettuce, heirloom tomato, yu choy"
+    },
+    {
+      "id": "2026-08-21-lunch-2",
+      "date": "2026-08-21",
+      "slot": "lunch",
+      "protein": [
+        "beef"
+      ],
+      "vegetables": [
+        "morel",
+        "broccoli",
+        "carrot"
+      ],
+      "fruit": [
+        "strawberry"
+      ],
+      "extras": [
+        "rice",
+        "white-rice"
+      ],
+      "source": "午餐 beef, carrot, morel mushroom, a small amount of white rice, broccoli, strawberry"
+    },
+    {
+      "id": "2026-08-21-dinner-3",
+      "date": "2026-08-21",
+      "slot": "dinner",
+      "protein": [
+        "king-salmon"
+      ],
+      "vegetables": [
+        "opo-squash",
+        "asparagus",
+        "kabocha"
+      ],
+      "fruit": [],
+      "extras": [
+        "hummus"
+      ],
+      "source": "晚餐 king salmon, asparagus, kabocha squash, opo squash with hummus"
+    },
+    {
+      "id": "2026-08-22-breakfast-1",
+      "date": "2026-08-22",
+      "slot": "breakfast",
+      "protein": [
+        "chicken"
+      ],
+      "vegetables": [
+        "cauliflower"
+      ],
+      "fruit": [
+        "blueberry"
+      ],
+      "extras": [
+        "oatmeal"
+      ],
+      "source": "早餐 oatmeal with homemade blueberry compote, steamed cauliflower, chicken thigh"
+    },
+    {
+      "id": "2026-08-22-lunch-2",
+      "date": "2026-08-22",
+      "slot": "lunch",
+      "protein": [
+        "king-salmon"
+      ],
+      "vegetables": [
+        "tomato"
+      ],
+      "fruit": [],
+      "extras": [
+        "bread"
+      ],
+      "source": "午餐 French toast, heirloom tomato, king salmon"
+    },
+    {
+      "id": "2026-08-22-dinner-3",
+      "date": "2026-08-22",
+      "slot": "dinner",
+      "protein": [
+        "pork-belly",
+        "pork"
+      ],
+      "vegetables": [
+        "bell-pepper",
+        "cauliflower",
+        "spinach"
+      ],
+      "fruit": [],
+      "extras": [
+        "rice",
+        "white-rice"
+      ],
+      "source": "晚餐 pork belly and white rice, spinach, a small amount of cauliflower, bell pepper"
+    },
+    {
+      "id": "2026-08-23-breakfast-1",
+      "date": "2026-08-23",
+      "slot": "breakfast",
+      "protein": [
+        "beef"
+      ],
+      "vegetables": [
+        "cauliflower",
+        "opo-squash"
+      ],
+      "fruit": [
+        "blueberry"
+      ],
+      "extras": [
+        "oatmeal",
+        "hummus"
+      ],
+      "source": "早餐 oatmeal with blueberry compote, a small amount of cauliflower, opo squash with hummus, beef"
+    },
+    {
+      "id": "2026-08-23-lunch-2",
+      "date": "2026-08-23",
+      "slot": "lunch",
+      "protein": [
+        "egg"
+      ],
+      "vegetables": [
+        "tomato",
+        "cauliflower",
+        "onion"
+      ],
+      "fruit": [],
+      "extras": [],
+      "source": "午餐 egg omelette with green onion, cauliflower, heirloom tomato"
+    },
+    {
+      "id": "2026-08-23-dinner-3",
+      "date": "2026-08-23",
+      "slot": "dinner",
+      "protein": [
+        "king-salmon"
+      ],
+      "vegetables": [
+        "bell-pepper",
+        "spinach"
+      ],
+      "fruit": [],
+      "extras": [
+        "bread"
+      ],
+      "source": "晚餐 king salmon, bell pepper, French toast, baby spinach"
+    },
+    {
+      "id": "2026-08-24-lunch-1",
+      "date": "2026-08-24",
+      "slot": "lunch",
+      "protein": [
+        "pork-belly"
+      ],
+      "vegetables": [
+        "tomato",
+        "cucumber"
+      ],
+      "fruit": [],
+      "extras": [
+        "rice",
+        "hummus"
+      ],
+      "source": "午餐 红烧肉，杂粮米饭（杂粮米+白米1:1），西红柿（透明袋子里的西红柿直接切就行，无需加热），黄瓜切成薄片加满满1勺鹰嘴豆泥"
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 import { openDB } from "idb";
-import type { AppData } from "./types";
+import type { AppData, Food, Meal } from "./types";
 import { initialData } from "./data";
 
 const DB_NAME = "layla-meal-planner";
@@ -13,11 +13,31 @@ export async function loadData(): Promise<AppData> {
   });
 
   const data = await db.get(STORE, "data");
-  if (data && data.version === 1) return data as AppData;
+  if (data && data.version === 1) {
+    const merged = mergeSeedData(data as AppData);
+    await db.put(STORE, merged, "data");
+    return merged;
+  }
 
   const seed = structuredClone(initialData);
   await db.put(STORE, seed, "data");
   return seed;
+}
+
+function mergeSeedData(data: AppData): AppData {
+  return {
+    ...data,
+    foods: mergeById(data.foods, initialData.foods),
+    history: mergeById(data.history.filter(meal => !/^h\d+$/.test(meal.id)), initialData.history)
+  };
+}
+
+function mergeById<T extends Food | Meal>(current: T[], seed: T[]): T[] {
+  const byId = new Map(current.map(item => [item.id, item]));
+  for (const item of seed) {
+    if (!byId.has(item.id)) byId.set(item.id, item);
+  }
+  return [...byId.values()];
 }
 
 export async function saveData(data: AppData) {

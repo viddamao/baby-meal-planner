@@ -1,11 +1,21 @@
-import type { AppData, Food, Meal } from "./types";
+import historyFile from "../data/history.json";
+import type { AppData, Category, Food, Meal } from "./types";
 
-export const foods: Food[] = [
+type HistoryMeal = Omit<Meal, "notes" | "eaten"> & {
+  extras?: string[];
+  source?: string;
+};
+
+type HistoryFile = {
+  meals: HistoryMeal[];
+};
+
+const seedFoods: Food[] = [
   { id: "chicken", name: "Chicken", category: "protein" },
   { id: "beef", name: "Beef", category: "protein" },
   { id: "pork", name: "Pork", category: "protein" },
   { id: "lamb", name: "Lamb", category: "protein" },
-  { id: "salmon", name: "Salmon", category: "protein" },
+  { id: "king-salmon", name: "King salmon", category: "protein" },
   { id: "shrimp", name: "Shrimp", category: "protein" },
   { id: "egg", name: "Egg", category: "protein" },
   { id: "tofu", name: "Tofu", category: "protein" },
@@ -22,47 +32,71 @@ export const foods: Food[] = [
   { id: "banana", name: "Banana", category: "fruit" }
 ];
 
-const meal = (id: string, date: string, slot: "lunch"|"dinner", protein: string[], vegetables: string[], fruit: string[]): Meal =>
-  { return { id, date, slot, protein, vegetables, fruit, eaten: true }; };
-
-export const dummyHistory: Meal[] = [
-  meal("h1","2026-08-17","lunch",["chicken"],["broccoli"],["strawberry"]),
-  meal("h2","2026-08-17","dinner",["beef"],["celery"],["blueberry"]),
-  meal("h3","2026-08-18","lunch",["salmon"],["bell-pepper"],["pear"]),
-  meal("h4","2026-08-18","dinner",["egg","tofu"],["spinach"],["strawberry"]),
-  meal("h5","2026-08-19","lunch",["pork"],["carrot"],["apple"]),
-  meal("h6","2026-08-19","dinner",["chicken"],["sweet-potato","broccoli"],["blueberry"]),
-  meal("h7","2026-08-20","lunch",["beef"],["spinach"],["pear"]),
-  meal("h8","2026-08-20","dinner",["salmon"],["broccoli"],["strawberry"]),
-  meal("h9","2026-08-21","lunch",["egg"],["carrot","celery"],["banana"]),
-  meal("h10","2026-08-21","dinner",["lamb"],["bell-pepper"],["blueberry"]),
-  meal("h11","2026-08-22","lunch",["chicken"],["spinach"],["pear"]),
-  meal("h12","2026-08-22","dinner",["shrimp"],["broccoli"],["strawberry"])
+const categoryFields: Array<[Category, keyof Pick<Meal, "protein" | "vegetables" | "fruit">]> = [
+  ["protein", "protein"],
+  ["vegetable", "vegetables"],
+  ["fruit", "fruit"]
 ];
 
+const history = (historyFile as HistoryFile).meals.map((meal): Meal => ({
+  ...meal,
+  notes: meal.source,
+  eaten: true
+}));
+
+export const foods: Food[] = mergeFoods(seedFoods, foodsFromHistory(history));
+
 export const dummyInventory = [
-  { id:"i1", foodId:"chicken", location:"freezer" as const, state:"raw" as const, availability:"plenty" as const },
-  { id:"i2", foodId:"beef", location:"freezer" as const, state:"raw" as const, availability:"some" as const },
-  { id:"i3", foodId:"salmon", location:"freezer" as const, state:"raw" as const, availability:"some" as const },
-  { id:"i4", foodId:"pork", location:"freezer" as const, state:"cooked" as const, availability:"use-soon" as const },
-  { id:"i5", foodId:"shrimp", location:"freezer" as const, state:"raw" as const, availability:"some" as const },
-  { id:"i6", foodId:"egg", location:"fridge" as const, availability:"plenty" as const },
-  { id:"i7", foodId:"tofu", location:"fridge" as const, availability:"some" as const },
-  { id:"i8", foodId:"broccoli", location:"fridge" as const, availability:"some" as const },
-  { id:"i9", foodId:"celery", location:"fridge" as const, availability:"some" as const },
-  { id:"i10", foodId:"spinach", location:"fridge" as const, availability:"some" as const },
-  { id:"i11", foodId:"bell-pepper", location:"fridge" as const, availability:"plenty" as const },
-  { id:"i12", foodId:"carrot", location:"fridge" as const, availability:"some" as const },
-  { id:"i13", foodId:"blueberry", location:"fridge" as const, availability:"some" as const },
-  { id:"i14", foodId:"strawberry", location:"fridge" as const, availability:"some" as const },
-  { id:"i15", foodId:"pear", location:"fridge" as const, availability:"plenty" as const },
-  { id:"i16", foodId:"apple", location:"fridge" as const, availability:"some" as const }
+  { id: "i1", foodId: "chicken", location: "freezer" as const, state: "raw" as const, availability: "plenty" as const },
+  { id: "i2", foodId: "beef", location: "freezer" as const, state: "raw" as const, availability: "some" as const },
+  { id: "i3", foodId: "king-salmon", location: "freezer" as const, state: "raw" as const, availability: "some" as const },
+  { id: "i4", foodId: "pork", location: "freezer" as const, state: "cooked" as const, availability: "use-soon" as const },
+  { id: "i5", foodId: "shrimp", location: "freezer" as const, state: "raw" as const, availability: "some" as const },
+  { id: "i6", foodId: "egg", location: "fridge" as const, availability: "plenty" as const },
+  { id: "i7", foodId: "tofu", location: "fridge" as const, availability: "some" as const },
+  { id: "i8", foodId: "broccoli", location: "fridge" as const, availability: "some" as const },
+  { id: "i9", foodId: "celery", location: "fridge" as const, availability: "some" as const },
+  { id: "i10", foodId: "spinach", location: "fridge" as const, availability: "some" as const },
+  { id: "i11", foodId: "bell-pepper", location: "fridge" as const, availability: "plenty" as const },
+  { id: "i12", foodId: "carrot", location: "fridge" as const, availability: "some" as const },
+  { id: "i13", foodId: "blueberry", location: "fridge" as const, availability: "some" as const },
+  { id: "i14", foodId: "strawberry", location: "fridge" as const, availability: "some" as const },
+  { id: "i15", foodId: "pear", location: "fridge" as const, availability: "plenty" as const },
+  { id: "i16", foodId: "apple", location: "fridge" as const, availability: "some" as const }
 ];
 
 export const initialData: AppData = {
   version: 1,
   foods,
   inventory: dummyInventory,
-  history: dummyHistory,
+  history,
   plans: []
 };
+
+function foodsFromHistory(meals: Meal[]): Food[] {
+  const byId = new Map<string, Food>();
+
+  for (const meal of meals) {
+    for (const [category, field] of categoryFields) {
+      for (const id of meal[field]) {
+        if (!byId.has(id)) byId.set(id, { id, name: labelFromId(id), category });
+      }
+    }
+  }
+
+  return [...byId.values()];
+}
+
+function mergeFoods(...groups: Food[][]): Food[] {
+  const byId = new Map<string, Food>();
+  for (const group of groups) {
+    for (const food of group) {
+      byId.set(food.id, byId.get(food.id) ?? food);
+    }
+  }
+  return [...byId.values()].sort((a, b) => a.category.localeCompare(b.category) || a.name.localeCompare(b.name));
+}
+
+function labelFromId(id: string) {
+  return id.split("-").map(word => word[0].toUpperCase() + word.slice(1)).join(" ");
+}

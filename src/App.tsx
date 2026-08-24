@@ -16,10 +16,10 @@ import {
   TextInput,
   Title
 } from "@mantine/core";
-import { Check, ChevronDown, ChevronUp, Download, Plus, RefreshCw, Settings, Trash2, Upload } from "lucide-react";
+import { Check, Download, Plus, RefreshCw, Settings, Trash2, Upload } from "lucide-react";
 import styled from "styled-components";
 import { loadData, saveData, downloadJson } from "./db";
-import { generateDay, substitutions } from "./planner";
+import { generateDayOptions } from "./planner";
 import type { AppData, Availability, Category, FoodState, Location, Meal } from "./types";
 
 type Tab = "planner" | "inventory" | "history" | "settings";
@@ -33,7 +33,7 @@ function App() {
   const [tab, setTab] = useState<Tab>("planner");
   const [detail, setDetail] = useState(false);
   const [dayMeals, setDayMeals] = useState<Meal[]>([]);
-  const [expanded, setExpanded] = useState<Record<string, boolean>>({});
+  const [mealOptionSets, setMealOptionSets] = useState<Meal[][]>([]);
   const [inventoryDrafts, setInventoryDrafts] = useState<Record<Location, InventoryDraft>>({
     fridge: { name: "", category: "vegetable" },
     freezer: { name: "", category: "protein" }
@@ -57,8 +57,9 @@ function App() {
 
   function makeDay() {
     if (!data) return;
-    setDayMeals(generateDay(data, today));
-    setExpanded({});
+    const options = generateDayOptions(data, today, 3);
+    setMealOptionSets(options);
+    setDayMeals(options.map(slotOptions => slotOptions[0]));
   }
 
   function markEaten(meal: Meal) {
@@ -71,7 +72,6 @@ function App() {
 
   function replaceMeal(meal: Meal, replacement: Meal) {
     setDayMeals(meals => meals.map(m => m.id === meal.id ? replacement : m));
-    setExpanded(x => ({ ...x, [meal.id]: false }));
   }
 
   function addInventory(location: Location) {
@@ -162,7 +162,7 @@ function App() {
             <div>
               <Text size="xs" fw={700} c="dimmed" tt="uppercase" lts="0.14em">Today</Text>
               <Title order={2}>{formatDate(today)}</Title>
-              <Text c="dimmed" mt={4}>Two simple meals based on what you have and what Layla has eaten recently.</Text>
+              <Text c="dimmed" mt={4}>Three simple meals based on what you have and what Layla has eaten recently.</Text>
             </div>
             <Button leftSection={<RefreshCw size={17} />} onClick={makeDay}>Generate today's meals</Button>
           </HeroRow>
@@ -170,21 +170,19 @@ function App() {
           {dayMeals.length === 0 ? (
             <EmptyState>
               <Title order={3}>Ready when you are</Title>
-              <Text c="dimmed">Generate lunch and dinner from the current inventory and meal history.</Text>
+              <Text c="dimmed">Generate breakfast, lunch, and dinner from the current inventory and meal history.</Text>
               <Button mt="md" leftSection={<RefreshCw size={17} />} onClick={makeDay}>Generate today's meals</Button>
             </EmptyState>
           ) : (
-            <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="md">
-              {dayMeals.map(m => (
+            <SimpleGrid cols={{ base: 1, md: 3 }} spacing="md">
+              {dayMeals.map((m, index) => (
                 <MealCard
                   key={m.id}
                   meal={m}
-                  data={data}
+                  choices={mealOptionSets[index] ?? [m]}
                   foodMap={foodMap}
-                  expanded={!!expanded[m.id]}
-                  onToggle={() => setExpanded(x => ({ ...x, [m.id]: !x[m.id] }))}
                   onEaten={() => markEaten(m)}
-                  onReplace={r => replaceMeal(m, r)}
+                  onSelect={r => replaceMeal(m, r)}
                 />
               ))}
             </SimpleGrid>
@@ -330,7 +328,10 @@ function App() {
                   <Text fw={700} size="sm">{shortDate(m.date)}</Text>
                   <Text c="dimmed" size="xs" tt="capitalize">{m.slot}</Text>
                 </div>
-                <Text size="sm">{formatMeal(m, foodMap)}</Text>
+                <div>
+                  <Text size="sm">{formatMeal(m, foodMap)}</Text>
+                  {m.notes && <Text size="xs" c="dimmed" mt={2}>{m.notes}</Text>}
+                </div>
               </HistoryRow>
             ))}
           </Paper>
@@ -397,52 +398,59 @@ function uniqueFoodId(name: string, existingIds: string[]) {
   return id;
 }
 
-function MealCard({ meal, data, foodMap, expanded, onToggle, onEaten, onReplace }: {
+function MealCard({ meal, choices, foodMap, onEaten, onSelect }: {
   meal: Meal;
-  data: AppData;
+  choices: Meal[];
   foodMap: Map<string, { name: string }>;
-  expanded: boolean;
-  onToggle: () => void;
   onEaten: () => void;
-  onReplace: (m: Meal) => void;
+  onSelect: (m: Meal) => void;
 }) {
-  const alts = expanded ? substitutions(meal, data, []) : [];
+  const recommended = choices[0];
 
   return (
     <Card withBorder radius="md" padding="lg">
-      <Stack gap="sm">
+      <Stack gap="md">
         <Group justify="space-between">
           <Badge variant="light">{meal.slot}</Badge>
           {meal.eaten && <Badge color="green" variant="light" leftSection={<Check size={12} />}>Eaten</Badge>}
         </Group>
-        <MealTitle>
-          <Text fw={700}>{meal.protein.map(id => foodMap.get(id)?.name).join(" + ")}</Text>
-          <Text c="dimmed">{meal.vegetables.map(id => foodMap.get(id)?.name).join(" + ")}</Text>
-          <Text c="dimmed">{meal.fruit.map(id => foodMap.get(id)?.name).join(" + ")}</Text>
-        </MealTitle>
-        <Group gap="xs">
-          {!meal.eaten && <Button size="xs" variant="light" leftSection={<Check size={14} />} onClick={onEaten}>Mark eaten</Button>}
-          <Button
-            size="xs"
-            variant="subtle"
-            leftSection={expanded ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
-            onClick={onToggle}
-          >
-            {expanded ? "Hide" : "Substitutions"}
-          </Button>
-        </Group>
-        {expanded && (
-          <Stack gap="xs">
-            {alts.map((a, i) => (
-              <Button key={i} variant="default" justify="flex-start" onClick={() => onReplace(a)}>
-                Option {i + 1}: {formatMeal(a, foodMap)}
-              </Button>
-            ))}
-          </Stack>
-        )}
+        <Stack gap="xs">
+          {choices.map((choice, index) => {
+            const selected = comboSignature(choice) === comboSignature(meal);
+            const isRecommended = recommended && comboSignature(choice) === comboSignature(recommended);
+            return (
+              <ChoiceButton
+                key={`${choice.id}-${comboSignature(choice)}`}
+                type="button"
+                $selected={selected}
+                onClick={() => onSelect(choice)}
+              >
+                <ChoiceTopLine>
+                  <Group gap={6}>
+                    <SelectionDot>{selected ? "●" : "○"}</SelectionDot>
+                    <Text size="sm" fw={700}>{choice.protein.map(id => foodMap.get(id)?.name).join(" + ")}</Text>
+                  </Group>
+                  {isRecommended && <Badge size="xs" variant="light">Recommended</Badge>}
+                </ChoiceTopLine>
+                <Text size="sm" c="dimmed">{choice.vegetables.map(id => foodMap.get(id)?.name).join(" + ")}</Text>
+                <Text size="sm" c="dimmed">{choice.fruit.map(id => foodMap.get(id)?.name).join(" + ")}</Text>
+                {index > 0 && <Text size="xs" c="dimmed">Option {index + 1}</Text>}
+              </ChoiceButton>
+            );
+          })}
+        </Stack>
+        {!meal.eaten && <Button variant="light" leftSection={<Check size={14} />} onClick={onEaten}>Mark eaten</Button>}
       </Stack>
     </Card>
   );
+}
+
+function comboSignature(meal: Meal) {
+  return [
+    ...meal.protein.map(id => `p:${id}`),
+    ...meal.vegetables.map(id => `v:${id}`),
+    ...meal.fruit.map(id => `f:${id}`)
+  ].sort().join("|");
 }
 
 const Page = styled(Container)`
@@ -517,9 +525,27 @@ const HistoryRow = styled.div`
   }
 `;
 
-const MealTitle = styled.div`
-  display: grid;
-  gap: 3px;
+const ChoiceButton = styled.button<{ $selected: boolean }>`
+  width: 100%;
+  border: 1px solid ${props => props.$selected ? "var(--mantine-color-blue-4)" : "var(--mantine-color-gray-3)"};
+  background: ${props => props.$selected ? "var(--mantine-color-blue-0)" : "var(--mantine-color-white)"};
+  color: inherit;
+  border-radius: var(--mantine-radius-md);
+  padding: 12px;
+  text-align: left;
+`;
+
+const ChoiceTopLine = styled.div`
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
+`;
+
+const SelectionDot = styled.span`
+  color: var(--mantine-color-blue-6);
+  line-height: 1.4;
 `;
 
 const HiddenFileInput = styled.input`

@@ -2,6 +2,7 @@ export type Category = "protein" | "vegetable" | "fruit";
 export type Location = "fridge" | "freezer";
 export type FoodState = "raw" | "cooked";
 export type Availability = "plenty" | "some" | "use-soon";
+export type MealSlot = "breakfast" | "lunch" | "dinner";
 
 export type Food = {
   id: string;
@@ -20,10 +21,13 @@ export type InventoryItem = {
 export type Meal = {
   id: string;
   date: string;
-  slot: "lunch" | "dinner";
+  slot: MealSlot;
   protein: string[];
   vegetables: string[];
   fruit: string[];
+  extras?: string[];
+  notes?: string;
+  source?: string;
   eaten?: boolean;
 };
 
