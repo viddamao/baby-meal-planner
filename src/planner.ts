@@ -17,6 +17,8 @@ type ScoreFacts = {
   exactComboDays: Map<string, number>;
   slotFamilyCounts: Map<MealSlot, Map<string, number>>;
   observedProteinVegetablePairs: Set<string>;
+  observedProteinFamilyPairs: Set<string>;
+  inventoryCounts: Record<Food["category"], number>;
 };
 
 type RankedMeal = {
@@ -27,22 +29,30 @@ type RankedMeal = {
 const DAY_SLOTS: MealSlot[] = ["breakfast", "lunch", "dinner"];
 
 const USE_SOON_SCORE = 10;
+const USE_SOON_SECOND_USE_SCORE = 4;
+const USE_SOON_THIRD_USE_SCORE = 0;
 const COOKED_USE_SOON_SCORE = 2;
 const SAME_SLOT_HISTORY_WEIGHT = 1;
 const OTHER_SLOT_HISTORY_WEIGHT = 0.35;
 const INGREDIENT_FREQUENCY_ALLOWED_COUNT = 2;
 const INGREDIENT_FREQUENCY_PENALTY = 0.8;
+const INGREDIENT_FREQUENCY_MAX_PENALTY = 5;
 const FAMILY_FREQUENCY_ALLOWED_COUNT = 3;
 const FAMILY_FREQUENCY_PENALTY = 0.7;
+const FAMILY_FREQUENCY_MAX_PENALTY = 5;
 const RECENT_EXACT_COMBO_PENALTY = 30;
 const OLDER_EXACT_COMBO_PENALTY = 15;
 const EXACT_COMBO_RECENT_DAYS = 7;
 const EXACT_COMBO_WINDOW_DAYS = 21;
 const DAILY_SAME_PROTEIN_FAMILY_PENALTY = 12;
 const DAILY_SAME_EXACT_PROTEIN_PENALTY = 16;
-const DAILY_REPEATED_VEGETABLE_PENALTY = 4;
+const DAILY_SECOND_VEGETABLE_PENALTY = 5;
+const DAILY_THIRD_VEGETABLE_PENALTY = 12;
+const DAILY_UNUSED_VEGETABLE_BONUS = 3;
 const DAILY_SAME_VEGETABLE_PAIR_PENALTY = 10;
-const DAILY_SAME_FRUIT_PENALTY = 2;
+const DAILY_SECOND_FRUIT_PENALTY = 6;
+const DAILY_THIRD_FRUIT_PENALTY = 15;
+const DAILY_UNUSED_FRUIT_BONUS = 4;
 const DIFFERENT_PREVIOUS_FAMILY_BONUS = 2;
 const SLOT_FAMILY_AFFINITY_BONUS = 3;
 const SLOT_FAMILY_AFFINITY_MIN_COUNT = 2;
@@ -51,10 +61,11 @@ const OBSERVED_PAIR_BONUS_CAP = 4;
 const NOT_EATEN_THREE_DAYS_BONUS = 3;
 const NOT_EATEN_SEVEN_DAYS_EXTRA_BONUS = 1;
 const TOFU_ONLY_PENALTY = 3;
+const MULTI_PROTEIN_PENALTY = 8;
 const OPTION_SAME_FAMILY_PENALTY = 14;
 const OPTION_SAME_EXACT_PROTEIN_PENALTY = 16;
-const OPTION_SAME_VEGETABLE_PENALTY = 3;
-const OPTION_SAME_FRUIT_PENALTY = 1;
+const OPTION_SAME_VEGETABLE_PENALTY = 4;
+const OPTION_SAME_FRUIT_PENALTY = 3;
 const OPTION_SAME_FAMILY_VEGETABLE_PENALTY = 8;
 const SUGGESTION_POOL_SIZE = 100;
 
@@ -149,6 +160,10 @@ function pairKey(proteinId: string, vegetableId: string) {
   return `${proteinFamily(proteinId)}|${vegetableId}`;
 }
 
+function proteinFamilyPairKey(proteinIds: string[]) {
+  return proteinIds.map(proteinFamily).sort().join("|");
+}
+
 function prepareScoreFacts(data: AppData, date: string): ScoreFacts {
   const history = validHistory(data).filter(m => m.date < date);
   const recentUse = new Map<string, Meal>();
@@ -158,6 +173,13 @@ function prepareScoreFacts(data: AppData, date: string): ScoreFacts {
   const exactComboDays = new Map<string, number>();
   const slotFamilyCounts = new Map<MealSlot, Map<string, number>>();
   const observedProteinVegetablePairs = new Set<string>();
+  const observedProteinFamilyPairs = new Set<string>();
+  const inventoryIds = new Set(data.inventory.map(item => item.foodId));
+  const inventoryCounts = {
+    protein: data.foods.filter(food => food.category === "protein" && inventoryIds.has(food.id)).length,
+    vegetable: data.foods.filter(food => food.category === "vegetable" && inventoryIds.has(food.id)).length,
+    fruit: data.foods.filter(food => food.category === "fruit" && inventoryIds.has(food.id)).length
+  };
 
   for (const slot of DAY_SLOTS) {
     slotFamilyCounts.set(slot, new Map());
@@ -189,6 +211,10 @@ function prepareScoreFacts(data: AppData, date: string): ScoreFacts {
       }
     }
 
+    if (historyMeal.protein.length >= 2) {
+      observedProteinFamilyPairs.add(proteinFamilyPairKey(historyMeal.protein));
+    }
+
     const key = comboKey(historyMeal);
     if (!exactComboDays.has(key) || days < exactComboDays.get(key)!) {
       exactComboDays.set(key, days);
@@ -203,7 +229,9 @@ function prepareScoreFacts(data: AppData, date: string): ScoreFacts {
     familyCounts,
     exactComboDays,
     slotFamilyCounts,
-    observedProteinVegetablePairs
+    observedProteinVegetablePairs,
+    observedProteinFamilyPairs,
+    inventoryCounts
   };
 }
 
@@ -215,7 +243,12 @@ function scoreMeal(meal: Meal, context: ScoreContext) {
   for (const id of ids) {
     const item = facts.inventory.get(id);
     if (!item) continue;
-    if (item.availability === "use-soon") score += USE_SOON_SCORE;
+    if (item.availability === "use-soon") {
+      const usesToday = selectedToday.filter(selected => ingredientIds(selected).includes(id)).length;
+      if (usesToday === 0) score += USE_SOON_SCORE;
+      else if (usesToday === 1) score += USE_SOON_SECOND_USE_SCORE;
+      else score += USE_SOON_THIRD_USE_SCORE;
+    }
     if (item.availability === "use-soon" && item.state === "cooked") score += COOKED_USE_SOON_SCORE;
   }
 
@@ -233,11 +266,13 @@ function scoreMeal(meal: Meal, context: ScoreContext) {
   }
 
   for (const id of ids) {
-    score -= Math.max(0, (facts.ingredientCounts.get(id) ?? 0) - INGREDIENT_FREQUENCY_ALLOWED_COUNT) * INGREDIENT_FREQUENCY_PENALTY;
+    const penalty = Math.max(0, (facts.ingredientCounts.get(id) ?? 0) - INGREDIENT_FREQUENCY_ALLOWED_COUNT) * INGREDIENT_FREQUENCY_PENALTY;
+    score -= Math.min(INGREDIENT_FREQUENCY_MAX_PENALTY, penalty);
   }
 
-  for (const id of meal.protein) {
-    score -= Math.max(0, (facts.familyCounts.get(proteinFamily(id)) ?? 0) - FAMILY_FREQUENCY_ALLOWED_COUNT) * FAMILY_FREQUENCY_PENALTY;
+  for (const family of new Set(meal.protein.map(proteinFamily))) {
+    const penalty = Math.max(0, (facts.familyCounts.get(family) ?? 0) - FAMILY_FREQUENCY_ALLOWED_COUNT) * FAMILY_FREQUENCY_PENALTY;
+    score -= Math.min(FAMILY_FREQUENCY_MAX_PENALTY, penalty);
   }
 
   const exactMatchDays = facts.exactComboDays.get(comboKey(meal));
@@ -253,13 +288,27 @@ function scoreMeal(meal: Meal, context: ScoreContext) {
       if (selected.protein.includes(id)) score -= DAILY_SAME_EXACT_PROTEIN_PENALTY;
       if (selected.protein.some(selectedId => proteinFamily(selectedId) === proteinFamily(id))) score -= DAILY_SAME_PROTEIN_FAMILY_PENALTY;
     }
-    for (const id of meal.vegetables) {
-      if (selected.vegetables.includes(id)) score -= DAILY_REPEATED_VEGETABLE_PENALTY;
-    }
     if (vegetablePairKey(meal) && vegetablePairKey(meal) === vegetablePairKey(selected)) score -= DAILY_SAME_VEGETABLE_PAIR_PENALTY;
-    for (const id of meal.fruit) {
-      if (selected.fruit.includes(id)) score -= DAILY_SAME_FRUIT_PENALTY;
-    }
+  }
+
+  for (const id of meal.vegetables) {
+    score += dailyIngredientDiversityScore(
+      selectedToday.flatMap(selected => selected.vegetables).filter(used => used === id).length,
+      facts.inventoryCounts.vegetable,
+      DAILY_UNUSED_VEGETABLE_BONUS,
+      DAILY_SECOND_VEGETABLE_PENALTY,
+      DAILY_THIRD_VEGETABLE_PENALTY
+    );
+  }
+
+  for (const id of meal.fruit) {
+    score += dailyIngredientDiversityScore(
+      selectedToday.flatMap(selected => selected.fruit).filter(used => used === id).length,
+      facts.inventoryCounts.fruit,
+      DAILY_UNUSED_FRUIT_BONUS,
+      DAILY_SECOND_FRUIT_PENALTY,
+      DAILY_THIRD_FRUIT_PENALTY
+    );
   }
 
   const previousMeal = selectedToday.at(-1);
@@ -286,7 +335,24 @@ function scoreMeal(meal: Meal, context: ScoreContext) {
     score -= TOFU_ONLY_PENALTY;
   }
 
+  if (meal.protein.length >= 2 && !facts.observedProteinFamilyPairs.has(proteinFamilyPairKey(meal.protein))) {
+    score -= MULTI_PROTEIN_PENALTY;
+  }
+
   return score;
+}
+
+function dailyIngredientDiversityScore(
+  previousUses: number,
+  inventoryChoiceCount: number,
+  unusedBonus: number,
+  secondUsePenalty: number,
+  thirdUsePenalty: number
+) {
+  if (inventoryChoiceCount <= 1) return 0;
+  if (previousUses === 0) return unusedBonus;
+  if (previousUses === 1) return -secondUsePenalty;
+  return -thirdUsePenalty;
 }
 
 function candidates(data: AppData): Meal[] {
@@ -347,7 +413,7 @@ function rankedScoredCandidates(data: AppData, date: string, targetSlot: MealSlo
     .sort((a, b) => b.score - a.score)
     .map(item => item);
 
-  return preferDistinctProteinFamilies(ranked, selectedToday);
+  return ranked;
 }
 
 export function generateDay(data: AppData, date: string): Meal[] {
@@ -447,19 +513,4 @@ function optionDiversityPenalty(candidate: Meal, selected: Meal[]) {
   }
 
   return penalty;
-}
-
-function preferDistinctProteinFamilies(ranked: RankedMeal[], selectedToday: Meal[]) {
-  if (selectedToday.length === 0) return ranked;
-  const firstDistinctIndex = ranked.findIndex(candidate => !sharesProteinFamily(candidate.meal, selectedToday));
-  if (firstDistinctIndex <= 0) return ranked;
-
-  const next = [...ranked];
-  const [distinct] = next.splice(firstDistinctIndex, 1);
-  return [distinct, ...next];
-}
-
-function sharesProteinFamily(candidate: Meal, meals: Meal[]) {
-  const usedFamilies = new Set(meals.flatMap(meal => meal.protein.map(proteinFamily)));
-  return candidate.protein.some(id => usedFamilies.has(proteinFamily(id)));
 }

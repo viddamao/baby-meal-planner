@@ -52,6 +52,11 @@ const history = [
   meal("h6", "2026-08-15", "dinner", ["beef-shank"], ["broccoli"], ["pear"])
 ];
 
+const repeatedMeals = (count: number, protein: string[], vegetables: string[], fruit: string[]) =>
+  Array.from({ length: count }, (_, index) =>
+    meal(`repeat-${index}`, "2026-08-10", "breakfast", protein, vegetables, fruit)
+  );
+
 describe("meal planner scoring", () => {
   it("recommended breakfast/lunch/dinner avoid repeating the same vegetable pair when inventory permits", () => {
     const options = generateDayOptions(appData(history), "2026-08-24", 3);
@@ -78,10 +83,77 @@ describe("meal planner scoring", () => {
     expect(proteinFamily("dungeness-crab")).toBe("crab");
   });
 
+  it("caps ingredient and protein-family frequency penalties", () => {
+    const candidate = meal("candidate", "2026-08-24", "breakfast", ["egg"], ["spinach"], ["blueberry"]);
+    const capped = appData(repeatedMeals(20, ["egg"], ["tomato"], ["apple"]));
+    const farBeyondCap = appData(repeatedMeals(60, ["egg"], ["tomato"], ["apple"]));
+
+    expect(scoreMealForTest(candidate, farBeyondCap, "2026-08-24", "breakfast")).toBe(
+      scoreMealForTest(candidate, capped, "2026-08-24", "breakfast")
+    );
+  });
+
+  it("does not make frequent egg massively worse than rare tofu solely from frequency", () => {
+    const data = appData(repeatedMeals(60, ["egg"], ["tomato"], ["apple"]));
+    const eggMeal = meal("egg", "2026-08-24", "breakfast", ["egg"], ["spinach"], ["blueberry"]);
+    const tofuMeal = meal("tofu", "2026-08-24", "breakfast", ["tofu"], ["spinach"], ["blueberry"]);
+
+    expect(scoreMealForTest(eggMeal, data, "2026-08-24", "breakfast")).toBeGreaterThan(
+      scoreMealForTest(tofuMeal, data, "2026-08-24", "breakfast") - 8
+    );
+  });
+
   it("prefers distinct protein families across three options within a slot", () => {
     const [breakfastOptions] = generateDayOptions(appData(history), "2026-08-24", 3);
     const families = breakfastOptions.map(option => proteinFamily(option.protein[0]));
     expect(new Set(families).size).toBeGreaterThanOrEqual(2);
+  });
+
+  it("strongly discourages repeated protein family without hard-blocking it", () => {
+    const data = appData([]);
+    const selectedBreakfast = meal("breakfast", "2026-08-24", "breakfast", ["egg"], ["spinach"], ["blueberry"]);
+    const repeatedProtein = meal("repeat", "2026-08-24", "lunch", ["egg"], ["tomato"], ["apple"]);
+    const rotatedProtein = meal("rotate", "2026-08-24", "lunch", ["chicken"], ["tomato"], ["apple"]);
+    const repeatedScore = scoreMealForTest(repeatedProtein, data, "2026-08-24", "lunch", [selectedBreakfast]);
+
+    expect(repeatedScore).toBeGreaterThan(Number.NEGATIVE_INFINITY);
+    expect(repeatedScore).toBeLessThan(scoreMealForTest(rotatedProtein, data, "2026-08-24", "lunch", [selectedBreakfast]));
+  });
+
+  it("adds reasonable produce diversity across three options when inventory permits", () => {
+    const [breakfastOptions] = generateDayOptions(appData(history), "2026-08-24", 3);
+    const vegetableSets = new Set(breakfastOptions.map(option => option.vegetables.slice().sort().join("|")));
+    const produceSets = new Set(breakfastOptions.map(option => [...option.vegetables, ...option.fruit].sort().join("|")));
+
+    expect(vegetableSets.size).toBeGreaterThanOrEqual(2);
+    expect(produceSets.size).toBeGreaterThanOrEqual(2);
+  });
+
+
+  it("single-protein meals beat arbitrary two-protein meals when otherwise comparable", () => {
+    const data = appData([]);
+    const singleProtein = meal("single", "2026-08-24", "lunch", ["chicken"], ["broccoli"], ["apple"]);
+    const arbitraryPair = meal("pair", "2026-08-24", "lunch", ["chicken", "beef-short-rib"], ["broccoli"], ["apple"]);
+
+    expect(scoreMealForTest(singleProtein, data, "2026-08-24", "lunch")).toBeGreaterThan(
+      scoreMealForTest(arbitraryPair, data, "2026-08-24", "lunch")
+    );
+  });
+
+  it("historically observed protein pairs can overcome the multi-protein penalty", () => {
+    const data = appData([
+      meal("observed", "2026-08-10", "breakfast", ["egg", "chicken"], ["spinach"], ["blueberry"])
+    ]);
+    const observedPair = meal("pair", "2026-08-24", "breakfast", ["egg", "chicken"], ["tomato"], ["apple"]);
+    const singleProtein = meal("single", "2026-08-24", "breakfast", ["chicken"], ["tomato"], ["apple"]);
+    const unobservedPair = meal("unobserved", "2026-08-24", "breakfast", ["egg", "beef-short-rib"], ["tomato"], ["apple"]);
+
+    expect(scoreMealForTest(observedPair, data, "2026-08-24", "breakfast")).toBeGreaterThan(
+      scoreMealForTest(singleProtein, data, "2026-08-24", "breakfast")
+    );
+    expect(scoreMealForTest(observedPair, data, "2026-08-24", "breakfast")).toBeGreaterThan(
+      scoreMealForTest(unobservedPair, data, "2026-08-24", "breakfast")
+    );
   });
 
   it("allows vegetable repetition when inventory is limited", () => {
@@ -89,6 +161,27 @@ describe("meal planner scoring", () => {
     const options = generateDayOptions(data, "2026-08-24", 3);
     expect(options).toHaveLength(3);
     expect(options.every(slotOptions => slotOptions[0].vegetables.includes("spinach"))).toBe(true);
+  });
+
+  it("with 3+ fruits available, recommended meals avoid using the same fruit three times", () => {
+    const options = generateDayOptions(appData(history), "2026-08-24", 3);
+    const fruits = options.map(slotOptions => slotOptions[0].fruit[0]);
+    const counts = fruits.map(fruit => fruits.filter(candidate => candidate === fruit).length);
+    expect(Math.max(...counts)).toBeLessThan(3);
+  });
+
+  it("with only one fruit available, all three meals may use it", () => {
+    const data = appData(history, ["egg", "chicken", "beef-short-rib", "spinach", "broccoli", "bell-pepper", "blueberry"]);
+    const options = generateDayOptions(data, "2026-08-24", 3);
+    expect(options).toHaveLength(3);
+    expect(options.every(slotOptions => slotOptions[0].fruit[0] === "blueberry")).toBe(true);
+  });
+
+  it("with enough vegetables, no single vegetable dominates all three recommended meals", () => {
+    const options = generateDayOptions(appData(history), "2026-08-24", 3);
+    const vegetables = options.flatMap(slotOptions => slotOptions[0].vegetables);
+    const counts = vegetables.map(vegetable => vegetables.filter(candidate => candidate === vegetable).length);
+    expect(Math.max(...counts)).toBeLessThan(3);
   });
 
   it("does not generate exact duplicate recommended meals", () => {
@@ -166,11 +259,32 @@ describe("meal planner scoring", () => {
   it("lets use-soon override a modest daily diversity penalty", () => {
     const data = appData([], undefined, ["beef-shank"]);
     const selectedBreakfast = meal("breakfast", "2026-08-24", "breakfast", ["egg"], ["spinach"], ["blueberry"]);
-    const useSoonBeef = meal("use-soon-beef", "2026-08-24", "lunch", ["beef-shank"], ["spinach"], ["blueberry"]);
+    const useSoonBeef = meal("use-soon-beef", "2026-08-24", "lunch", ["beef-shank"], ["spinach"], ["apple"]);
     const ordinaryChicken = meal("ordinary-chicken", "2026-08-24", "lunch", ["chicken"], ["broccoli"], ["apple"]);
 
     expect(scoreMealForTest(useSoonBeef, data, "2026-08-24", "lunch", [selectedBreakfast])).toBeGreaterThan(
       scoreMealForTest(ordinaryChicken, data, "2026-08-24", "lunch", [selectedBreakfast])
     );
+  });
+
+  it("applies diminishing use-soon bonus across repeated daily use", () => {
+    const normalData = appData([]);
+    const useSoonData = appData([], undefined, ["spinach"]);
+    const candidate = meal("candidate", "2026-08-24", "lunch", ["chicken"], ["spinach"], ["apple"]);
+    const firstUse = scoreMealForTest(candidate, useSoonData, "2026-08-24", "lunch") -
+      scoreMealForTest(candidate, normalData, "2026-08-24", "lunch");
+    const selectedOnce = [meal("breakfast", "2026-08-24", "breakfast", ["egg"], ["spinach"], ["blueberry"])];
+    const secondUse = scoreMealForTest(candidate, useSoonData, "2026-08-24", "lunch", selectedOnce) -
+      scoreMealForTest(candidate, normalData, "2026-08-24", "lunch", selectedOnce);
+    const selectedTwice = [
+      ...selectedOnce,
+      meal("dinner", "2026-08-24", "dinner", ["beef-short-rib"], ["spinach"], ["pear"])
+    ];
+    const thirdUse = scoreMealForTest(candidate, useSoonData, "2026-08-24", "lunch", selectedTwice) -
+      scoreMealForTest(candidate, normalData, "2026-08-24", "lunch", selectedTwice);
+
+    expect(firstUse).toBe(10);
+    expect(secondUse).toBe(4);
+    expect(thirdUse).toBe(0);
   });
 });
